@@ -1,0 +1,39 @@
+# Thư viện và build
+node_modules/
+dist/
+dist-ssr/
+build/
+.vite/
+coverage/
+
+# Biến môi trường (không đẩy mật khẩu/khóa lên GitHub)
+.env
+.env.*
+!.env.example
+
+# Log
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE (mỗi người một cấu hình riêng)
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Khác
+*.local
+*.tsbuildinfo
