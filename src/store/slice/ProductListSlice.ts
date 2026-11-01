@@ -23,13 +23,13 @@ const initialState: Product[] = [];
 
 const productSlice = createSlice({
     initialState,
-    name: "product",
-    reducers:{
-        load:(state, action: PayloadAction<Product[]>)=>{
+    name: "products",
+    reducers: {
+        load: (state, action: PayloadAction<Product[]>) => {
             return action.payload;
         }
     }
 })
 
-export const {load} = productSlice.actions;
+export const { load } = productSlice.actions;
 export default productSlice.reducer;

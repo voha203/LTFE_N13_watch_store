@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import type { Product } from '../store/slice/ProductListSlice';
 
-export default function ProductDetail({product}: {product: Product}) {
+export default function ProductItem({ product }: { product: Product }) {
     return(
         <>
             <div className="col-6 col-sm-6 col-lg-3">
