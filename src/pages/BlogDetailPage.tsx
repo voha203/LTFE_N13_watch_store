@@ -1,3 +1,3 @@
 export default function BlogDetailPage() {
-    return <h1>Products</h1>
+    return <h1>BlogDetailPage</h1>
 }

@@ -1,13 +1,15 @@
-import {Routes, Route, Router} from "react-router-dom";
-import HomePage from "../pages/HomePage.jsx";
-import ProductsPage from "../pages/ProductsPage.jsx";
-import ProductDetailPage from "../pages/ProductDetailPage.jsx";
-import BlogPage from "../pages/BlogPage.jsx";
-import BlogDetailPage from "../pages/BlogDetailPage.jsx";
-import CartPage from "../pages/CartPage.jsx";
-import LoginPage from "../pages/LoginPage.jsx";
-import CheckoutPage from "../pages/CheckoutPage.jsx";
-import NotFoundPage from "../pages/NotFoundPage.jsx";
+import { Routes, Route } from "react-router-dom";
+
+import HomePage from "../pages/HomePage";
+import ProductsPage from "../pages/ProductsPage";
+import ProductDetailPage from "../pages/ProductDetailPage";
+import BlogPage from '../pages/BlogPage';
+import BlogDetailPage from "../pages/BlogDetailPage";
+import CartPage from "../pages/CartPage";
+import LoginPage from "../pages/LoginPage";
+import CheckoutPage from "../pages/CheckoutPage";
+import NotFoundPage from "../pages/NotFoundPage";
+
 export default function AppRoutes() {
     return (
         <Routes>
@@ -21,5 +23,5 @@ export default function AppRoutes() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
-    )
+    );
 }
