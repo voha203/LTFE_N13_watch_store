@@ -1,10 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+export interface Product {
+    id: number;
+    name: string;
+    brand: string;
+    category: string;
+    gender: string;
+    price: number;
+    originalPrice: number;
+    sizes: number[];
+    colors: string[];
+    stock: number;
+    rating: number;
+    sold: number;
+    featured: boolean;
+    description: string;
+    image: string;
+}
+
+const initialState: Product[] = [];
 
 const productSlice = createSlice({
-    initialState:[],
+    initialState,
     name: "product",
     reducers:{
-        load:(state,action)=>{
+        load:(state, action: PayloadAction<Product[]>)=>{
             return action.payload;
         }
     }
