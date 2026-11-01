@@ -1,3 +1,10 @@
+import ProductList from "../component/ProductList";
+
 export default function ProductsPage() {
-    return <h1>Products</h1>
+    return (
+        <div>
+            <h1>Sản phẩm</h1>
+            <ProductList />
+        </div>
+    )
 }
