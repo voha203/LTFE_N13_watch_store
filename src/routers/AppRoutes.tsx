@@ -1,13 +1,13 @@
-import {Routes, Route} from "react-router-dom";
-import HomePage from "../pages/HomePage.jsx";
-import ProductsPage from "../pages/ProductsPage.jsx";
-import ProductDetailPage from "../pages/ProductDetailPage.jsx";
-import BlogPage from "../pages/BlogPage.jsx";
-import BlogDetailPage from "../pages/BlogDetailPage.jsx";
-import CartPage from "../pages/CartPage.jsx";
-import LoginPage from "../pages/LoginPage.jsx";
-import CheckoutPage from "../pages/CheckoutPage.jsx";
-import NotFoundPage from "../pages/NotFoundPage.jsx";
+import {Routes, Route, Router} from "react-router-dom";
+import HomePage from "../pages/HomePage.tsx";
+import ProductsPage from "../pages/ProductsPage.tsx";
+import ProductDetailPage from "../pages/ProductDetailPage.tsx";
+import BlogPage from "../pages/BlogPage.tsx";
+import BlogDetailPage from "../pages/BlogDetailPage.tsx";
+import CartPage from "../pages/CartPage.tsx";
+import LoginPage from "../pages/LoginPage.tsx";
+import CheckoutPage from "../pages/CheckoutPage.tsx";
+import NotFoundPage from "../pages/NotFoundPage.tsx";
 export default function AppRoutes() {
     return (
         <Routes>
