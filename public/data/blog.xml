@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>WatchStore Blog</title>
+        <link>https://watchstore.com/blog</link>
+        <description>Cập nhật tin tức và kiến thức về đồng hồ mới nhất</description>
+        <item>
+            <title>Top 5 mẫu đồng hồ cơ bán chạy nhất năm 2026</title>
+            <link>https://watchstore.com/blog/top-5-dong-ho-co-2026</link>
+            <description>Khám phá những mẫu đồng hồ cơ mang phong cách lịch lãm, đẳng cấp dành cho phái mạnh trong năm nay.</description>
+            <pubDate>Mon, 02 Nov 2026 10:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Cách phân biệt đồng hồ chính hãng và hàng giả đơn giản</title>
+            <link>https://watchstore.com/blog/cach-phan-biet-dong-ho-that-gia</link>
+            <description>Hướng dẫn chi tiết các mẹo nhận biết mặt kính, dây đeo và kim đồng hồ để tránh mua phải hàng nhái kém chất lượng.</description>
+            <pubDate>Sun, 01 Nov 2026 09:30:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Bí quyết bảo dưỡng và vệ sinh đồng hồ tại nhà</title>
+            <link>https://watchstore.com/blog/bi-quyet-bao-duong-dong-ho</link>
+            <description>Làm thế nào để chiếc đồng hồ của bạn luôn sáng bóng và bền bỉ theo thời gian? Hãy đọc ngay bài viết này.</description>
+            <pubDate>Sat, 31 Oct 2026 14:15:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Xu hướng thiết kế đồng hồ thông minh kết hợp cổ điển</title>
+            <link>https://watchstore.com/blog/xu-huong-dong-ho-thong-minh-2026</link>
+            <description>Sự hòa quyện tuyệt vời giữa bộ máy cơ truyền thống và các tính năng theo dõi sức khỏe hiện đại.</description>
+            <pubDate>Fri, 30 Oct 2026 08:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Lịch sử thương hiệu đồng hồ Thụy Sĩ huyền thoại</title>
+            <link>https://watchstore.com/blog/lich-su-thuong-hieu-thuy-si</link>
+            <description>Hành trình phát triển từ những xưởng chế tác thủ công nhỏ bé thành biểu tượng thời gian toàn cầu.</description>
+            <pubDate>Thu, 29 Oct 2026 11:20:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
