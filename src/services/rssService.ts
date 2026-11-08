@@ -1,15 +1,11 @@
-export interface BlogPost {
-    title: string;
-    link: string;
-    description: string;
-    pubDate: string;
-}
+import { BlogPost } from '../types/BlogPost';
 
 export const fetchRssBlog = async (): Promise<BlogPost[]> => {
     try {
         const response = await fetch('/data/blog.xml');
-        const strData = await response.text();
+        if (!response.ok) throw new Error('Không thể đọc file blog.xml');
 
+        const strData = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(strData, 'application/xml');
 
@@ -17,17 +13,26 @@ export const fetchRssBlog = async (): Promise<BlogPost[]> => {
         const posts: BlogPost[] = [];
 
         items.forEach((item) => {
-            posts.push({
-                title: item.querySelector('title')?.textContent || '',
-                link: item.querySelector('link')?.textContent || '',
-                description: item.querySelector('description')?.textContent || '',
-                pubDate: item.querySelector('pubDate')?.textContent || '',
-            });
+            const title = item.querySelector('title')?.textContent || '';
+            const link = item.querySelector('link')?.textContent || '';
+            const description = item.querySelector('description')?.textContent || '';
+            const pubDate = item.querySelector('pubDate')?.textContent || '';
+
+            const contentNode =
+                item.querySelector('content\\:encoded') ||
+                item.querySelector('encoded') ||
+                item.querySelector('content') ||
+                item.querySelector('description');
+
+            const content = contentNode?.textContent || '';
+            const slug = title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+
+            posts.push({ title, link, description, pubDate, content, slug });
         });
 
         return posts;
     } catch (error) {
-        console.error('Lỗi khi đọc file RSS/XML blog:', error);
+        console.error('Lỗi khi đọc file blog.xml:', error);
         return [];
     }
 };
