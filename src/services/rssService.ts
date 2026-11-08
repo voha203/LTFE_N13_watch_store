@@ -1,4 +1,4 @@
-import { BlogPost } from '../types/BlogPost';
+import type {BlogPost} from '../types/BlogPost';
 
 export const fetchRssBlog = async (): Promise<BlogPost[]> => {
     try {

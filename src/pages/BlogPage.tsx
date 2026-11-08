@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchRssBlog } from '../services/rssService';
-import { BlogPost } from '../types/BlogPost';
+import type {BlogPost} from '../types/BlogPost';
 import { BlogCard } from '../components/BlogCard';
 
 export default function BlogPage() {

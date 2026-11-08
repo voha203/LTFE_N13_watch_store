@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchRssBlog } from '../services/rssService';
-import { BlogPost } from '../types/BlogPost';
+import type {BlogPost} from '../types/BlogPost';
 
 export default function BlogDetailPage() {
     const { slug } = useParams<{ slug: string }>();
