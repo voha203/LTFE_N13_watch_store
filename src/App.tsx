@@ -1,4 +1,4 @@
-import AppRoutes from "./routers/AppRoutes.tsx";
+import AppRoutes from "./routers/AppRoutes";
 export default function App(){
   return <AppRoutes />;
 }
