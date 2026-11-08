@@ -1,38 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>WatchStore Blog</title>
-        <link>https://watchstore.com/blog</link>
-        <description>Cập nhật tin tức và kiến thức về đồng hồ mới nhất</description>
+        <link>http://localhost:5173/blog</link>
+        <description>Tin tức và kiến thức về đồng hồ chính hãng</description>
+
         <item>
             <title>Top 5 mẫu đồng hồ cơ bán chạy nhất năm 2026</title>
-            <link>https://watchstore.com/blog/top-5-dong-ho-co-2026</link>
-            <description>Khám phá những mẫu đồng hồ cơ mang phong cách lịch lãm, đẳng cấp dành cho phái mạnh trong năm nay.</description>
+            <link>http://localhost:5173/blog/top-5-mau-dong-ho-co-ban-chay-nhat-2026</link>
             <pubDate>Mon, 02 Nov 2026 10:00:00 GMT</pubDate>
+            <description>Khám phá những mẫu đồng hồ cơ mang phong cách lịch lãm, đẳng cấp dành cho phái mạnh trong năm nay.</description>
+            <content:encoded><![CDATA[
+        Trong năm 2026, thị trường đồng hồ cơ chứng kiến sự lên ngôi của các dòng sản phẩm kết hợp giữa nghệ thuật chế tác truyền thống và vật liệu hiện đại như vỏ titan, kính sapphire chống lóa nguyên khối.<br><br>
+        <strong>1. Seiko Presage Cocktail Time:</strong> Thiết kế mặt số trải tia cực kỳ bắt mắt, phù hợp cho dân văn phòng và các buổi tiệc sang trọng.<br><br>
+        <strong>2. Orient Bambino Gen 4:</strong> Biểu tượng của sự cổ điển với giá thành cực kỳ dễ tiếp cận.<br><br>
+        <strong>3. Tissot Gentleman Powermatic 80:</strong> Khả năng trữ cót lên đến 80 giờ, độ bền bỉ cao.<br><br>
+        <strong>4. Citizen Series 8:</strong> Dòng đồng hồ thể thao tích hợp mang phong cách mạnh mẽ.<br><br>
+        <strong>5. Hamilton Khaki Field Automatic:</strong> Lựa chọn hàng đầu cho những ai yêu thích phong cách quân đội lịch lãm.
+      ]]></content:encoded>
         </item>
+
         <item>
             <title>Cách phân biệt đồng hồ chính hãng và hàng giả đơn giản</title>
-            <link>https://watchstore.com/blog/cach-phan-biet-dong-ho-that-gia</link>
-            <description>Hướng dẫn chi tiết các mẹo nhận biết mặt kính, dây đeo và kim đồng hồ để tránh mua phải hàng nhái kém chất lượng.</description>
+            <link>http://localhost:5173/blog/cach-phan-biet-dong-ho-chinh-hang-va-gia</link>
             <pubDate>Sun, 01 Nov 2026 09:30:00 GMT</pubDate>
+            <description>Hướng dẫn chi tiết các mẹo nhận biết mặt kính, dây đeo và kim đồng hồ để tránh mua phải hàng nhái kém chất lượng.</description>
+            <content:encoded><![CDATA[
+        Khi thị trường đồng hồ ngày càng sôi động, tình trạng hàng giả tinh vi xuất hiện tràn lan khiến người mua dễ rơi vào bẫy "tiền mất tật mang". Dưới đây là các điểm mấu chốt giúp bạn tự bảo vệ mình:<br><br>
+        - <strong>Kiểm tra mặt kính:</strong> Đồng hồ chính hãng thường dùng kính sapphire nguyên khối, khi nhỏ một giọt nước lên mặt kính, giọt nước sẽ không bị loang ra và tụ lại thành giọt tròn.<br><br>
+        - <strong>Kiểm tra kim đồng hồ:</strong> Kim đồng hồ chính hãng được làm rất sắc nét, cân đối, chuyển động mượt mà. Trong khi đó, hàng nhái thường có nét kim thô, lệch hoặc bị bọt khí.<br><br>
+        - <strong>Kiểm tra hộp và giấy tờ:</strong> Sản phẩm chính hãng luôn đi kèm hộp đựng cao cấp, sổ bảo hành toàn cầu và thẻ từ rõ nét.
+      ]]></content:encoded>
         </item>
+
         <item>
             <title>Bí quyết bảo dưỡng và vệ sinh đồng hồ tại nhà</title>
-            <link>https://watchstore.com/blog/bi-quyet-bao-duong-dong-ho</link>
-            <description>Làm thế nào để chiếc đồng hồ của bạn luôn sáng bóng và bền bỉ theo thời gian? Hãy đọc ngay bài viết này.</description>
+            <link>http://localhost:5173/blog/bi-quyet-bao-duong-va-ve-sinh-dong-ho</link>
             <pubDate>Sat, 31 Oct 2026 14:15:00 GMT</pubDate>
+            <description>Làm thế nào để chiếc đồng hồ của bạn luôn sáng bóng và bền bỉ theo thời gian? Hãy đọc ngay bài viết này.</description>
+            <content:encoded><![CDATA[
+        Đồng hồ đeo tay tiếp xúc trực tiếp với mồ hôi và bụi bẩn hằng ngày. Việc vệ sinh định kỳ giúp phụ kiện của bạn luôn sáng bóng như mới:<br><br>
+        <strong>1. Vệ sinh dây kim loại:</strong> Dùng bàn chải mềm lông mịn cùng nước ấm pha xà phòng loãng để chải sạch các kẽ mắt xích, sau đó lau khô bằng khăn mềm.<br><br>
+        <strong>2. Vệ sinh dây da:</strong> Tránh để dây da ngâm nước quá lâu. Dùng khăn ẩm lau nhẹ nhàng và thoa một lớp dầu dưỡng mỏng chuyên dụng để da không bị nứt nẻ.<br><br>
+        <strong>3. Lưu ý khi cất giữ:</strong> Khi không sử dụng, hãy đặt đồng hồ nơi khô ráo, tránh xa các thiết bị điện tử có từ trường mạnh như tivi, loa.
+      ]]></content:encoded>
         </item>
+
         <item>
             <title>Xu hướng thiết kế đồng hồ thông minh kết hợp cổ điển</title>
-            <link>https://watchstore.com/blog/xu-huong-dong-ho-thong-minh-2026</link>
-            <description>Sự hòa quyện tuyệt vời giữa bộ máy cơ truyền thống và các tính năng theo dõi sức khỏe hiện đại.</description>
+            <link>http://localhost:5173/blog/xu-huong-thiet-ke-dong-ho-thong-minh</link>
             <pubDate>Fri, 30 Oct 2026 08:00:00 GMT</pubDate>
+            <description>Sự hòa quyện tuyệt vời giữa bộ máy cơ truyền thống và các tính năng theo dõi sức khỏe hiện đại.</description>
+            <content:encoded><![CDATA[
+        Sự bùng nổ của công nghệ đã định hình lại phong cách sống, và ngành chế tác đồng hồ không nằm ngoài vòng xoáy đó:<br><br>
+        - Sự kết hợp giữa mặt đồng hồ cơ lộ máy (skeleton) và các cảm biến ẩn dưới lớp vỏ giúp vừa giữ được nét hoài cổ vừa hỗ trợ đo nhịp tim, giấc ngủ.<br><br>
+        - Thời lượng pin được cải tiến vượt bậc nhờ công nghệ sạc lai.<br><br>
+        - Đây là xu hướng được giới doanh nhân trẻ cực kỳ ưa chuộng trong năm 2026.
+      ]]></content:encoded>
         </item>
+
         <item>
             <title>Lịch sử thương hiệu đồng hồ Thụy Sĩ huyền thoại</title>
-            <link>https://watchstore.com/blog/lich-su-thuong-hieu-thuy-si</link>
-            <description>Hành trình phát triển từ những xưởng chế tác thủ công nhỏ bé thành biểu tượng thời gian toàn cầu.</description>
+            <link>http://localhost:5173/blog/lich-su-thuong-hieu-dong-ho-thuy-si</link>
             <pubDate>Thu, 29 Oct 2026 11:20:00 GMT</pubDate>
-        </item>
-    </channel>
-</rss>
+            <description>Hành trình phát triển từ những xưởng chế tác thủ công nhỏ bé thành biểu tượng thời gian toàn cầu.</br></description>
+        <content:encoded><![CDATA[
+        Thụy Sĩ từ lâu đã được mệnh danh là thánh địa của ngành đồng hồ thế giới. Nơi đây hội tụ những tiêu chuẩn khắt khe nhất về độ chính xác và độ bền:<br><br>
+        - Khái niệm <em>Swiss Made</em> không chỉ đơn thuần là nơi sản xuất mà còn là bảo chứng vàng cho chất lượng.<br><br>
+        - Những tên tuổi lâu đời như Rolex, Omega, Tissot đã trải qua hàng thế kỷ tôi luyện để giữ vững vị thế độc tôn.<br><br>
+        - Quy trình lắp ráp hoàn toàn thủ công bởi những nghệ nhân bậc thầy.
+      ]]></content:encoded>
+    </item>
+
+    <item>
+        <title>Chọn đồng hồ phù hợp với từng dáng cổ tay nam giới</title>
+        <link>http://localhost:5173/blog/chon-dong-ho-phu-hop-voi-co-tay</link>
+        <pubDate>Wed, 28 Oct 2026 15:00:00 GMT</pubDate>
+        <description>Bí quyết đo kích thước cổ tay và lựa chọn đường kính mặt số cân đối, lịch lãm nhất.</description>
+        <content:encoded><![CDATA[
+        Một chiếc đồng hồ đẹp trước hết phải là chiếc đồng hồ vừa vặn với cổ tay của người đeo:<br><br>
+        <strong>1. Cổ tay nhỏ (dưới 15cm):</strong> Nên chọn mặt số có đường kính từ 35mm đến 38mm, thiết kế mỏng nhẹ.<br><br>
+        <strong>2. Cổ tay trung bình (15cm - 17cm):</strong> Phù hợp với hầu hết các mẫu đồng hồ từ 39mm đến 42mm.<br><br>
+        <strong>3. Cổ tay lớn (trên 17cm):</strong> Tự tin lựa chọn các dòng thể thao hầm hố kích thước từ 43mm trở lên.
+      ]]></content:encoded>
+    </item>
+</channel>
+        </rss>
