@@ -1,0 +1,130 @@
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    background: linear-gradient(135deg, #f4f1ea 0%, #e6e0d2 100%);
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 36px 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-brand {
+    align-self: center;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #b8860b;
+    text-decoration: none;
+}
+
+.login-form h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 26px;
+    color: #1a1a1a;
+}
+
+.login-subtitle {
+    margin: -8px 0 8px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+    border-color: #b8860b;
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2);
+}
+
+.field input.input-error {
+    border-color: #d32f2f;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 64px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #b8860b;
+    cursor: pointer;
+}
+
+.error {
+    margin: 0;
+    font-size: 13px;
+    color: #d32f2f;
+}
+
+.submit-button {
+    margin-top: 8px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-button:hover {
+    background: #b8860b;
+}
+
+.back-home {
+    align-self: center;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+
+.back-home:hover {
+    color: #1a1a1a;
+}
