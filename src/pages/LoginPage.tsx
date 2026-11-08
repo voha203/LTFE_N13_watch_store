@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import "../styles/LoginPage.css";
+import "../styles/AuthPage.css";
+import { isValidEmail } from '../utils/validators'
 type FormErrors = {
     email?: string
     password?: string
 }
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -20,7 +20,7 @@ export default function LoginPage() {
 
         if (!email.trim()) {
             newErrors.email = 'Vui lòng nhập email'
-        } else if (!EMAIL_PATTERN.test(email)) {
+        } else if (!isValidEmail(email)) {
             newErrors.email = 'Email không đúng định dạng'
         }
 
@@ -101,7 +101,23 @@ export default function LoginPage() {
                         </p>
                     )}
                 </div>
+                {/* ...hết khối ô mật khẩu... */}
 
+                <div className="auth-links-right">
+                    <Link to="/forgot-password">Quên mật khẩu?</Link>
+                </div>
+
+                <button type="submit" className="submit-button">
+                    Đăng nhập
+                </button>
+
+                <p className="auth-switch">
+                    Chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+                </p>
+
+                <Link to="/" className="back-home">
+                    ← Về trang chủ
+                </Link>
                 <button type="submit" className="submit-button">
                     Đăng nhập
                 </button>
