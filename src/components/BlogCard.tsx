@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlogPost } from '../types/BlogPost';
+import type {BlogPost} from '../types/BlogPost';
 import { Link } from 'react-router-dom';
 
 interface BlogCardProps {
