@@ -39,7 +39,6 @@ export default function LoginPage() {
         setErrors(newErrors)
 
         if (Object.keys(newErrors).length === 0) {
-            // Tuần 2: dispatch hành động đăng nhập từ AuthSlice ở đây
             console.log('Đăng nhập với', email)
         }
     }
