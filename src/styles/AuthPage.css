@@ -128,3 +128,41 @@
 .back-home:hover {
     color: #1a1a1a;
 }
+.auth-links-right {
+    margin-top: -8px;
+    text-align: right;
+    font-size: 13px;
+}
+
+.auth-links-right a,
+.auth-switch a {
+    color: #b8860b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-links-right a:hover,
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.auth-switch {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.success-message {
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 14px;
+}
+
+.success-message a {
+    color: #1b5e20;
+    font-weight: 600;
+}
