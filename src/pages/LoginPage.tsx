@@ -101,7 +101,6 @@ export default function LoginPage() {
                         </p>
                     )}
                 </div>
-                {/* ...hết khối ô mật khẩu... */}
 
                 <div className="auth-links-right">
                     <Link to="/forgot-password">Quên mật khẩu?</Link>
@@ -114,13 +113,6 @@ export default function LoginPage() {
                 <p className="auth-switch">
                     Chưa có tài khoản? <Link to="/register">Đăng ký</Link>
                 </p>
-
-                <Link to="/" className="back-home">
-                    ← Về trang chủ
-                </Link>
-                <button type="submit" className="submit-button">
-                    Đăng nhập
-                </button>
 
                 <Link to="/" className="back-home">
                     ← Về trang chủ
