@@ -1,49 +1,137 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
     cartCount?: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [location.pathname]);
+
+    const toggleMenu = () => {
+        setIsMenuOpen((prev) => !prev);
+    };
+
     return (
-        <header style={{ backgroundColor: '#ffffff', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 50 }}>
-            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#4f46e5' }}>
-                    <Link to="/" style={{ textDecoration: 'none', color: '#4f46e5' }}>WatchStore</Link>
+        <header className="store-header">
+            <div className="store-header-inner">
+                <div className="store-logo">
+                    <Link to="/" className="store-logo-link">
+                        <span className="store-logo-icon" aria-hidden="true">⏱️</span>
+                        <span className="store-logo-text">WatchStore</span>
+                    </Link>
                 </div>
-                <nav style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-                    <Link to="/" style={{ textDecoration: 'none', color: '#4b5563', fontWeight: 500 }}>Trang chủ</Link>
-                    <Link to="/products" style={{ textDecoration: 'none', color: '#4b5563', fontWeight: 500 }}>Sản phẩm</Link>
-                    <Link to="/blog" style={{ textDecoration: 'none', color: '#4b5563', fontWeight: 500 }}>Blog</Link>
-                    <Link to="/login" style={{ textDecoration: 'none', color: '#4b5563', fontWeight: 500 }}>Đăng nhập</Link>
+
+                <nav className="store-nav store-nav--desktop" aria-label="Menu chính">
+                    <Link
+                        to="/"
+                        className={`store-nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                    >
+                        Trang chủ
+                    </Link>
+                    <Link
+                        to="/products"
+                        className={`store-nav-link ${location.pathname.startsWith('/products') ? 'active' : ''}`}
+                    >
+                        Sản phẩm
+                    </Link>
+                    <Link
+                        to="/blog"
+                        className={`store-nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+                    >
+                        Blog
+                    </Link>
+                    <Link
+                        to="/login"
+                        className={`store-nav-link ${location.pathname === '/login' ? 'active' : ''}`}
+                    >
+                        Đăng nhập
+                    </Link>
                     <Link
                         to="/cart"
                         aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}
-                        style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', textDecoration: 'none', color: '#4b5563', fontWeight: 500 }}
+                        className="store-nav-cart"
                     >
-                        Giỏ hàng
+                        <span>Giỏ hàng</span>
                         <span
                             aria-hidden="true"
-                            style={{
-                                minWidth: '20px',
-                                height: '20px',
-                                marginLeft: '6px',
-                                padding: '0 6px',
-                                borderRadius: '999px',
-                                backgroundColor: cartCount > 0 ? '#17654e' : '#e5e7eb',
-                                color: cartCount > 0 ? '#ffffff' : '#6b7280',
-                                fontSize: '12px',
-                                fontWeight: 700,
-                                lineHeight: '20px',
-                                textAlign: 'center',
-                            }}
+                            className={`store-cart-badge ${cartCount > 0 ? 'store-cart-badge--active' : ''}`}
                         >
                             {cartCount}
                         </span>
+                    </Link>
+                </nav>
+
+                <div className="store-header-mobile-controls">
+                    <Link
+                        to="/cart"
+                        aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}
+                        className="store-nav-cart store-nav-cart--mobile"
+                    >
+                        <span className="store-cart-icon" aria-hidden="true">🛒</span>
+                        <span
+                            aria-hidden="true"
+                            className={`store-cart-badge ${cartCount > 0 ? 'store-cart-badge--active' : ''}`}
+                        >
+                            {cartCount}
+                        </span>
+                    </Link>
+
+                    <button
+                        type="button"
+                        className="store-hamburger-btn"
+                        onClick={toggleMenu}
+                        aria-expanded={isMenuOpen}
+                        aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
+                    >
+                        <span className="store-hamburger-icon">
+                            {isMenuOpen ? "✕" : "☰"}
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div className={`store-mobile-menu ${isMenuOpen ? 'store-mobile-menu--open' : ''}`}>
+                <nav className="store-mobile-nav" aria-label="Menu di động">
+                    <Link
+                        to="/"
+                        className={`store-mobile-nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                    >
+                        Trang chủ
+                    </Link>
+                    <Link
+                        to="/products"
+                        className={`store-mobile-nav-link ${location.pathname.startsWith('/products') ? 'active' : ''}`}
+                    >
+                        Sản phẩm
+                    </Link>
+                    <Link
+                        to="/blog"
+                        className={`store-mobile-nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+                    >
+                        Blog tin tức
+                    </Link>
+                    <Link
+                        to="/cart"
+                        className={`store-mobile-nav-link ${location.pathname === '/cart' ? 'active' : ''}`}
+                    >
+                        Giỏ hàng ({cartCount})
+                    </Link>
+                    <Link
+                        to="/login"
+                        className={`store-mobile-nav-link ${location.pathname === '/login' ? 'active' : ''}`}
+                    >
+                        Đăng nhập
                     </Link>
                 </nav>
             </div>
         </header>
     );
 };
+
+export default Header;

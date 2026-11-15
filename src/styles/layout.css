@@ -17,15 +17,15 @@
 .store-main {
   flex: 1;
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 40px;
+  padding-top: 12px;
+  padding-bottom: 48px;
 }
 
 .store-skip-link {
   position: absolute;
   left: -9999px;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   padding: 10px 16px;
   border-radius: 0 0 8px 0;
   background: #17654e;
@@ -36,4 +36,216 @@
 
 .store-skip-link:focus {
   left: 0;
+}
+
+.store-header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.store-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.store-logo {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.store-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #111827;
+  transition: opacity 0.2s;
+}
+
+.store-logo-link:hover {
+  opacity: 0.9;
+}
+
+.store-logo-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.store-logo-text {
+  letter-spacing: -0.5px;
+  color: #17654e;
+}
+
+.store-nav--desktop {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.store-nav-link {
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.store-nav-link:hover,
+.store-nav-link.active {
+  color: #17654e;
+  border-bottom-color: #17654e;
+}
+
+.store-nav-cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.store-nav-cart:hover {
+  background: #f3f4f6;
+  color: #17654e;
+  border-color: #d1d5db;
+}
+
+.store-cart-badge {
+  min-width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+.store-cart-badge--active {
+  background-color: #17654e;
+  color: #ffffff;
+}
+
+.store-header-mobile-controls {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.store-nav-cart--mobile {
+  padding: 6px 10px;
+}
+
+.store-cart-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.store-hamburger-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 20px;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.store-hamburger-btn:hover {
+  background: #e5e7eb;
+}
+
+.store-mobile-menu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border-top: 1px solid #f3f4f6;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.store-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px 20px;
+  gap: 4px;
+}
+
+.store-mobile-nav-link {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.store-mobile-nav-link:hover,
+.store-mobile-nav-link.active {
+  background: #f0fdf4;
+  color: #17654e;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .store-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .store-header-inner {
+    padding: 12px 16px;
+  }
+
+  .store-nav--desktop {
+    display: none;
+  }
+
+  .store-header-mobile-controls {
+    display: flex;
+  }
+
+  .store-mobile-menu {
+    display: block;
+  }
+
+  .store-mobile-menu--open {
+    max-height: 360px;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 480px) {
+  .store-logo {
+    font-size: 19px;
+  }
 }
