@@ -61,6 +61,45 @@
     padding: 16px;
 }
 
+.product-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.product-compare-btn {
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    color: #4b5563;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.product-compare-btn:hover {
+    border-color: #17654e;
+    color: #17654e;
+    background: #f0fdf4;
+}
+
+.product-compare-btn--active {
+    border-color: #17654e;
+    background: #17654e;
+    color: #ffffff;
+}
+
+.product-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
 .product-brand {
     color: #17654e;
     font-size: 12px;

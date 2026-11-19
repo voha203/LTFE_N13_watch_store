@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCompare, selectIsInCompare } from "../store/slice/CompareSlice";
+import type { AppDispatch } from "../store/Store";
 import type { Product } from "../types/Product";
 
 interface ProductItemProps {
@@ -6,6 +9,15 @@ interface ProductItemProps {
 }
 
 export default function ProductItem({ product }: ProductItemProps) {
+    const dispatch = useDispatch<AppDispatch>();
+    const isInCompare = useSelector(selectIsInCompare(product.id));
+
+    const handleCompare = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dispatch(toggleCompare(product));
+    };
+
     return (
         <div className="product-card">
             <Link to={`/products/${product.id}`} className="product-image-link">
@@ -17,7 +29,18 @@ export default function ProductItem({ product }: ProductItemProps) {
             </Link>
 
             <div className="product-card-body">
-                <span className="product-brand">{product.brand}</span>
+                <div className="product-card-top">
+                    <span className="product-brand">{product.brand}</span>
+                    <button
+                        type="button"
+                        className={`product-compare-btn ${isInCompare ? "product-compare-btn--active" : ""}`}
+                        onClick={handleCompare}
+                        title={isInCompare ? "Bỏ so sánh" : "Thêm vào so sánh (tối đa 3)"}
+                        aria-label="So sánh sản phẩm"
+                    >
+                        ⚖️ {isInCompare ? "Đang so sánh" : "So sánh"}
+                    </button>
+                </div>
 
                 <h3 className="product-name">{product.name}</h3>
 
@@ -36,9 +59,11 @@ export default function ProductItem({ product }: ProductItemProps) {
                     {product.originalPrice.toLocaleString("vi-VN")} đ
                 </div>
 
-                <Link to={`/products/${product.id}`} className="product-button">
-                    Xem sản phẩm
-                </Link>
+                <div className="product-card-actions">
+                    <Link to={`/products/${product.id}`} className="product-button">
+                        Xem chi tiết
+                    </Link>
+                </div>
             </div>
         </div>
     );

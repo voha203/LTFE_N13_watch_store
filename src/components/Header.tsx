@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCompareCount } from '../store/slice/CompareSlice';
 
 interface HeaderProps {
     cartCount?: number;
@@ -8,6 +10,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
+    const compareCount = useSelector(selectCompareCount);
 
     useEffect(() => {
         setIsMenuOpen(false);
@@ -41,6 +44,17 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                         Sản phẩm
                     </Link>
                     <Link
+                        to="/compare"
+                        className={`store-nav-link ${location.pathname === '/compare' ? 'active' : ''}`}
+                    >
+                        So sánh
+                        {compareCount > 0 && (
+                            <span className="store-cart-badge store-cart-badge--active">
+                                {compareCount}
+                            </span>
+                        )}
+                    </Link>
+                    <Link
                         to="/blog"
                         className={`store-nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
                     >
@@ -68,6 +82,22 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                 </nav>
 
                 <div className="store-header-mobile-controls">
+                    <Link
+                        to="/compare"
+                        aria-label={`So sánh, ${compareCount} sản phẩm`}
+                        className="store-nav-cart store-nav-cart--mobile"
+                    >
+                        <span className="store-cart-icon" aria-hidden="true">⚖️</span>
+                        {compareCount > 0 && (
+                            <span
+                                aria-hidden="true"
+                                className="store-cart-badge store-cart-badge--active"
+                            >
+                                {compareCount}
+                            </span>
+                        )}
+                    </Link>
+
                     <Link
                         to="/cart"
                         aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}
@@ -109,6 +139,12 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                         className={`store-mobile-nav-link ${location.pathname.startsWith('/products') ? 'active' : ''}`}
                     >
                         Sản phẩm
+                    </Link>
+                    <Link
+                        to="/compare"
+                        className={`store-mobile-nav-link ${location.pathname === '/compare' ? 'active' : ''}`}
+                    >
+                        So sánh ({compareCount})
                     </Link>
                     <Link
                         to="/blog"
