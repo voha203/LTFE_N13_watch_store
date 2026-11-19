@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCompareCount } from '../store/slice/CompareSlice';
+import { useAuth } from '../context/AuthContext';
 
 interface HeaderProps {
     cartCount?: number;
@@ -11,6 +12,7 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
     const compareCount = useSelector(selectCompareCount);
+    const { user, isAuthenticated } = useAuth();
 
     useEffect(() => {
         setIsMenuOpen(false);
@@ -60,12 +62,21 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                     >
                         Blog
                     </Link>
-                    <Link
-                        to="/login"
-                        className={`store-nav-link ${location.pathname === '/login' ? 'active' : ''}`}
-                    >
-                        Đăng nhập
-                    </Link>
+                    {isAuthenticated ? (
+                        <Link
+                            to="/account"
+                            className={`store-nav-link ${location.pathname === '/account' ? 'active' : ''}`}
+                        >
+                            👤 {user?.name || "Tài khoản"}
+                        </Link>
+                    ) : (
+                        <Link
+                            to="/login"
+                            className={`store-nav-link ${location.pathname === '/login' ? 'active' : ''}`}
+                        >
+                            Đăng nhập
+                        </Link>
+                    )}
                     <Link
                         to="/cart"
                         aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}
@@ -158,12 +169,21 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                     >
                         Giỏ hàng ({cartCount})
                     </Link>
-                    <Link
-                        to="/login"
-                        className={`store-mobile-nav-link ${location.pathname === '/login' ? 'active' : ''}`}
-                    >
-                        Đăng nhập
-                    </Link>
+                    {isAuthenticated ? (
+                        <Link
+                            to="/account"
+                            className={`store-mobile-nav-link ${location.pathname === '/account' ? 'active' : ''}`}
+                        >
+                            👤 Tài khoản ({user?.name || "Tôi"})
+                        </Link>
+                    ) : (
+                        <Link
+                            to="/login"
+                            className={`store-mobile-nav-link ${location.pathname === '/login' ? 'active' : ''}`}
+                        >
+                            Đăng nhập
+                        </Link>
+                    )}
                 </nav>
             </div>
         </header>

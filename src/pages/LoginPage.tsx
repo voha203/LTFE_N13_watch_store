@@ -1,45 +1,52 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import type { FormEvent } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { isValidEmail } from '../utils/validators';
 import "../styles/AuthPage.css";
-import { isValidEmail } from '../utils/validators'
-type FormErrors = {
-    email?: string
-    password?: string
-}
 
+type FormErrors = {
+    email?: string;
+    password?: string;
+};
 
 export default function LoginPage() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [showPassword, setShowPassword] = useState(false)
-    const [errors, setErrors] = useState<FormErrors>({})
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [errors, setErrors] = useState<FormErrors>({});
+
+    const { login } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     function validate(): FormErrors {
-        const newErrors: FormErrors = {}
+        const newErrors: FormErrors = {};
 
         if (!email.trim()) {
-            newErrors.email = 'Vui lòng nhập email'
+            newErrors.email = 'Vui lòng nhập email';
         } else if (!isValidEmail(email)) {
-            newErrors.email = 'Email không đúng định dạng'
+            newErrors.email = 'Email không đúng định dạng';
         }
 
         if (!password) {
-            newErrors.password = 'Vui lòng nhập mật khẩu'
+            newErrors.password = 'Vui lòng nhập mật khẩu';
         } else if (password.length < 6) {
-            newErrors.password = 'Mật khẩu tối thiểu 6 ký tự'
+            newErrors.password = 'Mật khẩu tối thiểu 6 ký tự';
         }
 
-        return newErrors
+        return newErrors;
     }
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
-        e.preventDefault()
-        const newErrors = validate()
-        setErrors(newErrors)
+        e.preventDefault();
+        const newErrors = validate();
+        setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            console.log('Đăng nhập với', email)
+            login(email);
+            const redirectPath = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/account';
+            navigate(redirectPath, { replace: true });
         }
     }
 
@@ -118,5 +125,5 @@ export default function LoginPage() {
                 </Link>
             </form>
         </div>
-    )
+    );
 }

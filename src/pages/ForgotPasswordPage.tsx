@@ -20,7 +20,7 @@ export default function ForgotPasswordPage() {
             setSent(false)
         } else {
             setError('')
-            setSent(true) // Demo: không gửi email thật
+            setSent(true)
         }
     }
 

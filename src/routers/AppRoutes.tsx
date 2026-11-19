@@ -12,6 +12,8 @@ import NotFoundPage from '../pages/NotFoundPage';
 import RegisterPage from '../pages/RegisterPage';
 import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ComparePage from '../pages/ComparePage';
+import AccountPage from '../pages/AccountPage';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 export default function AppRoutes() {
   return (
@@ -25,6 +27,14 @@ export default function AppRoutes() {
         <Route path="blog/:slug" element={<BlogDetailPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route
+          path="account"
+          element={
+            <ProtectedRoute>
+              <AccountPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="checkout" element={<CheckoutPage />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="forgot-password" element={<ForgotPasswordPage />} />
