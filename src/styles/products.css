@@ -9,6 +9,29 @@
     margin-bottom: 20px;
 }
 
+.product-search {
+    margin-bottom: 24px;
+}
+
+.product-search input {
+    width: 100%;
+    max-width: 420px;
+    padding: 11px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.product-search input:focus {
+    border-color: #17654e;
+    box-shadow: 0 0 0 3px rgba(23, 101, 78, 0.12);
+}
+
+.product-catalog .product-list {
+    margin-top: 0;
+}
+
 .product-list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
