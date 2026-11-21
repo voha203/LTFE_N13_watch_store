@@ -12,13 +12,6 @@ function formatPrice(value: number) {
   return Number(value).toLocaleString('vi-VN') + ' đ';
 }
 
-const galleryViews = [
-  { label: 'Toàn cảnh', zoom: 1, origin: 'center center' },
-  { label: 'Góc trái', zoom: 1.25, origin: 'left center' },
-  { label: 'Góc phải', zoom: 1.25, origin: 'right center' },
-  { label: 'Mặt số', zoom: 1.6, origin: 'center top' },
-];
-
 const colorSwatches = [
   { match: 'trắng', value: '#f5f5f2' },
   { match: 'đen', value: '#1d1d1f' },
@@ -220,11 +213,9 @@ export function ProductDetail() {
     return <ProductNotFound />;
   }
 
-  const activeViewData = galleryViews[activeView] ?? galleryViews[0];
-  const imageStyle = {
-    '--pdp-image-zoom': activeViewData.zoom,
-    '--pdp-image-origin': activeViewData.origin,
-  } as CSSProperties;
+  const galleryImages = [product.image, ...(product.images ?? [])].filter(Boolean);
+  const activeImage = galleryImages[activeView] ?? product.image;
+
   const hasDiscount = product.originalPrice > product.price;
   const discountPercent = hasDiscount
     ? Math.round((1 - product.price / product.originalPrice) * 100)
@@ -295,46 +286,36 @@ export function ProductDetail() {
 
             <div className={`product-detail-page__zoom${isAvailable ? '' : ' is-sold-out'}`}>
               <img
-                src={product.image}
-                alt={`${product.name} - ${activeViewData.label}`}
+                src={activeImage}
+                alt={`${product.name} - Ảnh ${activeView + 1}`}
                 className="product-detail-page__image"
-                style={imageStyle}
               />
-              <span className="product-detail-page__zoom-hint">Di chuột để xem chi tiết</span>
             </div>
 
             <div className="product-detail-page__caption">
-              <span>{activeViewData.label}</span>
+              <span>Ảnh sản phẩm</span>
               <span>
-                {activeView + 1} / {galleryViews.length}
+                {activeView + 1} / {galleryImages.length}
               </span>
             </div>
           </div>
 
           <div className="product-detail-page__thumbs">
-            {galleryViews.map((view, index) => (
+            {galleryImages.map((src, index) => (
               <button
-                key={view.label}
+                key={`${src}-${index}`}
                 type="button"
                 className={`product-detail-page__thumb${
                   activeView === index ? ' product-detail-page__thumb--active' : ''
                 }`}
                 onClick={() => setActiveView(index)}
-                aria-label={`Xem ${view.label}`}
+                aria-label={`Xem ảnh ${index + 1}`}
                 aria-pressed={activeView === index}
               >
                 <span className="product-detail-page__thumb-media">
-                  <img
-                    src={product.image}
-                    alt=""
-                    loading="lazy"
-                    style={{
-                      transform: `scale(${view.zoom})`,
-                      transformOrigin: view.origin,
-                    }}
-                  />
+                  <img src={src} alt="" loading="lazy" />
                 </span>
-                <span>{view.label}</span>
+                <span>Ảnh {index + 1}</span>
               </button>
             ))}
           </div>
@@ -551,7 +532,7 @@ export function ProductDetail() {
                         <ul className="product-detail-page__bullets">
                           <li>Thiết kế {product.gender.toLowerCase()}, dễ phối đồ.</li>
                           <li>Chống nước {product.waterResistance.toLowerCase()}.</li>
-                          <li>Dây đeo {product.strap.toLowerCase()}, êm và bền bỉ.</li>
+                          <li>Dây đeo {product.strap.toLowerCase()}</li>
                         </ul>
                       </>
                     )}
