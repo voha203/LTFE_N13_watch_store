@@ -28,6 +28,38 @@
     box-shadow: 0 0 0 3px rgba(23, 101, 78, 0.12);
 }
 
+.product-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.product-filter label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 180px;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.product-filter select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 14px;
+    outline: none;
+}
+
+.product-filter select:focus {
+    border-color: #17654e;
+    box-shadow: 0 0 0 3px rgba(23, 101, 78, 0.12);
+}
+
 .product-catalog .product-list {
     margin-top: 0;
 }
