@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleCompare, selectIsInCompare } from "../store/slice/CompareSlice";
+import { toggleCompare, selectIsInCompare, selectCompareItems } from "../store/slice/CompareSlice";
 import { useRequireAuth } from "../hooks/useRequireAuth";
 import { useAppDispatch } from "../store/hooks";
 import { addToCart } from "../store/slice/CartSlice";
@@ -16,10 +16,15 @@ export default function ProductItem({ product }: ProductItemProps) {
     const appDispatch = useAppDispatch();
     const requireAuth = useRequireAuth();
     const isInCompare = useSelector(selectIsInCompare(product.id));
+    const compareItems = useSelector(selectCompareItems);
 
     const handleCompare = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
+        if (!isInCompare && compareItems.length >= 3) {
+            alert("Chỉ được so sánh tối đa 3 sản phẩm. Vui lòng vào trang So sánh để xóa bớt sản phẩm.");
+            return;
+        }
         dispatch(toggleCompare(product));
     };
 

@@ -83,6 +83,7 @@
 .store-logo-text {
   letter-spacing: -0.5px;
   color: #17654e;
+  white-space: nowrap;
 }
 
 .store-nav--desktop {

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchRssBlog } from '../services/rssService';
-import type {BlogPost} from '../types/BlogPost';
+import type { BlogPost } from '../types/BlogPost';
 
 export default function BlogDetailPage() {
     const { slug } = useParams<{ slug: string }>();
@@ -11,15 +11,11 @@ export default function BlogDetailPage() {
     useEffect(() => {
         fetchRssBlog()
             .then((posts) => {
-                const found = posts.find((p) => {
-                    const pSlug = p.slug || p.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
-                    return pSlug === slug;
-                });
+                const found = posts.find((p) => p.slug === slug);
                 setPost(found || null);
                 setLoading(false);
             })
-            .catch((err) => {
-                console.error("Lỗi tải chi tiết bài viết:", err);
+            .catch(() => {
                 setLoading(false);
             });
     }, [slug]);
@@ -57,7 +53,6 @@ export default function BlogDetailPage() {
 
     return (
         <article style={{ maxWidth: '800px', margin: '40px auto', padding: '0 24px' }}>
-            {}
             <div style={{ marginBottom: '24px' }}>
                 <Link
                     to="/blog"
@@ -84,8 +79,6 @@ export default function BlogDetailPage() {
                     {post.description}
                 </p>
                 <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: '24px 0' }} />
-
-                {}
                 <div
                     style={{ fontSize: '16px', color: '#374151', lineHeight: '1.8' }}
                     dangerouslySetInnerHTML={{ __html: fullContent }}
