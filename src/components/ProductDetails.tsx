@@ -7,7 +7,7 @@ import { fetchProducts } from '../store/slice/ProductListSlice';
 import type { AppDispatch, RootState } from '../store/Store';
 import type { Product } from '../types/Product';
 import '../styles/product-detail.css';
-
+import { useRequireAuth } from '../hooks/useRequireAuth';
 function formatPrice(value: number) {
   return Number(value).toLocaleString('vi-VN') + ' đ';
 }
@@ -179,7 +179,8 @@ export function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState('');
   const [openSection, setOpenSection] = useState<AccordionKey | ''>('description');
   const [actionMessage, setActionMessage] = useState('');
-
+  // vo them
+  const requireAuth = useRequireAuth();
   useEffect(() => {
     if (products.length === 0 && !loading && !error) {
       dispatch(fetchProducts());
@@ -233,6 +234,8 @@ export function ProductDetail() {
   };
 
   const handleAddToCart = () => {
+    if (!requireAuth()) return;
+
     if (!isAvailable) {
       return;
     }

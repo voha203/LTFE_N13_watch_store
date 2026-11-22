@@ -1,11 +1,23 @@
 import { Link } from "react-router-dom";
 import type { Product } from "../types/Product";
-
+import { useRequireAuth } from "../hooks/useRequireAuth";
+import { useCart } from "../context/CartContext";
 interface ProductItemProps {
     product: Product;
 }
 
 export default function ProductItem({ product }: ProductItemProps) {
+    // vo them
+    const requireAuth = useRequireAuth();
+    const { addToCart } = useCart();
+
+    function handleAddToCart() {
+        if (!requireAuth()) return;
+
+        addToCart(product, 1);
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
+    }
+   // vo them
     return (
         <div className="product-card">
             <Link to={`/products/${product.id}`} className="product-image-link">
@@ -39,6 +51,7 @@ export default function ProductItem({ product }: ProductItemProps) {
                 <Link to={`/products/${product.id}`} className="product-button">
                     Xem sản phẩm
                 </Link>
+
             </div>
         </div>
     );
