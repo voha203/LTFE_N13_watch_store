@@ -65,8 +65,13 @@ function clampQuantity(quantity: number, stock: number): number {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-    const [items, setItems] = useState<CartItem[]>(readInitialCart);
+    const [items, setItems] = useState<CartItem[]>(() => {
+        const cart = readInitialCart();
 
+        console.log("Dữ liệu giỏ hàng khi khởi tạo:", cart);
+
+        return cart;
+    });
     useEffect(() => {
         try {
             globalThis.localStorage?.setItem(STORAGE_KEY, JSON.stringify(items));

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { isValidEmail } from '../utils/validators'
+import { useAppDispatch } from '../store/hooks'
+import { registerUser } from '../store/slice/AuthSlice'
 import '../styles/AuthPage.css'
 
 type FormErrors = {
@@ -18,7 +20,9 @@ export default function RegisterPage() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [errors, setErrors] = useState<FormErrors>({})
     const [success, setSuccess] = useState(false)
-
+    const dispatch = useAppDispatch()
+    const [submitting, setSubmitting] = useState(false)
+    const [serverError, setServerError] = useState('')
     function validate(): FormErrors {
         const newErrors: FormErrors = {}
 
@@ -45,15 +49,22 @@ export default function RegisterPage() {
         return newErrors
     }
 
-    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const newErrors = validate()
         setErrors(newErrors)
+        setServerError('')
+        setSuccess(false)
+        if (Object.keys(newErrors).length > 0) return
 
-        if (Object.keys(newErrors).length === 0) {
-            // Tuần 2: lưu tài khoản (AuthSlice + localStorage) ở đây
-            console.log('Đăng ký với', fullName, email)
+        setSubmitting(true)
+        try {
+            await dispatch(registerUser({ fullName, email, password })).unwrap()
             setSuccess(true)
+        } catch (err) {
+            setServerError(typeof err === 'string' ? err : 'Đăng ký thất bại')
+        } finally {
+            setSubmitting(false)
         }
     }
 
@@ -130,8 +141,10 @@ export default function RegisterPage() {
                     )}
                 </div>
 
-                <button type="submit" className="submit-button">
-                    Đăng ký
+                {serverError && <p className="error server-error">{serverError}</p>}
+
+                <button type="submit" className="submit-button" disabled={submitting}>
+                    {submitting ? 'Đang đăng ký...' : 'Đăng ký'}
                 </button>
 
                 <p className="auth-switch">
