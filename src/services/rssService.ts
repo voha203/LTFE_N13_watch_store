@@ -1,4 +1,30 @@
-import type {BlogPost} from '../types/BlogPost';
+import type { BlogPost } from '../types/BlogPost';
+
+function extractOrGenerateSlug(title: string, link: string): string {
+    if (link) {
+        try {
+            const url = new URL(link);
+            const pathname = url.pathname.replace(/\/+$/, '');
+            const segment = pathname.split('/').pop();
+            if (segment && segment !== 'blog') {
+                return segment;
+            }
+        } catch {
+            const clean = link.replace(/\/+$/, '');
+            const segment = clean.split('/').pop();
+            if (segment && segment !== 'blog') {
+                return segment;
+            }
+        }
+    }
+    return title
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[đĐ]/g, 'd')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
 
 export const fetchRssBlog = async (): Promise<BlogPost[]> => {
     try {
@@ -13,10 +39,10 @@ export const fetchRssBlog = async (): Promise<BlogPost[]> => {
         const posts: BlogPost[] = [];
 
         items.forEach((item) => {
-            const title = item.querySelector('title')?.textContent || '';
-            const link = item.querySelector('link')?.textContent || '';
-            const description = item.querySelector('description')?.textContent || '';
-            const pubDate = item.querySelector('pubDate')?.textContent || '';
+            const title = item.querySelector('title')?.textContent?.trim() || '';
+            const link = item.querySelector('link')?.textContent?.trim() || '';
+            const description = item.querySelector('description')?.textContent?.trim() || '';
+            const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
 
             const contentNode =
                 item.querySelector('content\\:encoded') ||
@@ -24,15 +50,14 @@ export const fetchRssBlog = async (): Promise<BlogPost[]> => {
                 item.querySelector('content') ||
                 item.querySelector('description');
 
-            const content = contentNode?.textContent || '';
-            const slug = title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+            const content = contentNode?.textContent?.trim() || '';
+            const slug = extractOrGenerateSlug(title, link);
 
             posts.push({ title, link, description, pubDate, content, slug });
         });
 
         return posts;
-    } catch (error) {
-        console.error('Lỗi khi đọc file blog.xml:', error);
+    } catch {
         return [];
     }
 };
