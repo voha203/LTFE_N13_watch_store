@@ -1,141 +1,157 @@
 [
   {
     "id": 1,
-    "name": "Casio F-91W",
+    "name": "Đồng hồ CASIO BABY-G BGA-10-1A",
     "brand": "Casio",
-    "category": "Đồng hồ điện tử",
+    "category": "Đồng hồ thể thao",
     "gender": "Unisex",
-    "price": 450000,
-    "originalPrice": 590000,
+    "price": 2850000,
+    "originalPrice": 2850000,
     "movement": "Quartz",
     "caseMaterial": "Nhựa resin",
-    "waterResistance": "Chống nước cơ bản",
-    "strap": "Dây nhựa đen",
+    "waterResistance": "Khả năng chống nước ở độ sâu 100 mét",
+    "strap": "Dây đeo nhựa",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Đen"
     ],
     "stock": 12,
     "rating": 4.5,
     "sold": 85,
     "featured": true,
-    "description": "Đồng hồ điện tử cổ điển, nhỏ gọn, có báo thức, bấm giờ và đèn nền.",
-    "image": "https://product.hstatic.net/1000388227/product/f-91w-1hdg_43afe469c73d4aaaa599e7def7435e5b_large.png"
+    "description": "Những mẫu BABY-G mới này kết hợp thiết kế đơn sắc, đơn giản và tinh tế với những họa tiết hình trái tim đầy tinh nghịch.",
+    "image": "https://casio.anhkhue.com/imageresize.php?path=https://cdn.hstatic.net/products/1000388227/bga-10-1a_435ab6c7715b4c18a4de5e28f07674ce_large.png&q=100",
+    "images": [
+      "https://casio.anhkhue.com/imageresize.php?path=https://cdn.hstatic.net/products/1000388227/bga-10-1a_feature_2_sp_4ab6f164afcd4a2190dd4e5eaba32a16_large.jpg&q=100",
+      "https://casio.anhkhue.com/imageresize.php?path=https://cdn.hstatic.net/products/1000388227/bga-10-1a_feature_3_sp_f9aad8d124f94f57addb520e5c252dfd_large.jpg&q=100"
+    ]
   },
   {
     "id": 2,
-    "name": "Casio G-Shock DW-5600E",
+    "name": "CASIO G-SHOCK GMC-2500D-1A2",
     "brand": "Casio",
     "category": "Đồng hồ thể thao",
     "gender": "Nam",
-    "price": 2350000,
-    "originalPrice": 2690000,
+    "price": 10896000,
+    "originalPrice": 10896000,
     "movement": "Quartz digital",
-    "caseMaterial": "Resin",
+    "caseMaterial": "Thép không gỉ",
     "waterResistance": "200 m",
-    "strap": "Resin đen",
+    "strap": "Thép",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Bạc Xanh"
     ],
     "stock": 18,
     "rating": 4.7,
     "sold": 132,
     "featured": false,
-    "description": "Thiết kế vuông bền bỉ, chống sốc, phù hợp hoạt động ngoài trời.",
-    "image": "https://cdn.hstatic.net/products/1000388227/gac-2500-9a_87e1b1f247734238bd3e371fdb2462d7_large.png"
+    "description": "Dòng G-SHOCK 2500 theo đuổi bản chất của vẻ đẹp đồng hồ với các chức năng cơ bản.",
+    "image": "https://casio.anhkhue.com/imageresize.php?path=https://cdn.hstatic.net/products/1000388227/gmc-2500d-1a2_2323f75b2434470ab3562b4e1404e7e3_large.png&q=100",
+    "images": [
+      "https://casio.anhkhue.com/imageresize.php?path=https://cdn.hstatic.net/products/1000388227/gmc-2500d-1a2_02_0c599d98b4124fa0a42e90740aaf8d9c_large.jpg&q=100",
+      "https://casio.anhkhue.com/imageresize.php?path=https://cdn.hstatic.net/products/1000388227/gmc-2500d-1a2_05_57ff0320f31f47eab8e85eddf10651e5_large.jpg&q=100"
+    ]
   },
   {
     "id": 3,
-    "name": "Casio Vintage A168WA",
+    "name": "Đồng hồ CASIO EDIFICE EFR-109D-2ADR",
     "brand": "Casio",
     "category": "Đồng hồ điện tử",
-    "gender": "Unisex",
-    "price": 1250000,
-    "originalPrice": 1490000,
+    "gender": "Nam",
+    "price": 4405000,
+    "originalPrice": 4405000,
     "movement": "Quartz digital",
     "caseMaterial": "Thép không gỉ",
-    "waterResistance": "Chống nước cơ bản",
-    "strap": "Thép bạc",
+    "waterResistance": "Khả năng chống nước ở độ sâu 100 mét",
+    "strap": "Dây đeo thép không gỉ, khóa gập 3 với 1 lần nhấn",
+
+
     "colors": [
-      "Đen",
-      "Bạc"
+      "Đen Xanh"
     ],
     "stock": 24,
     "rating": 4.8,
     "sold": 210,
     "featured": false,
-    "description": "Phong cách vintage với màn hình điện tử và dây thép cổ điển.",
-    "image": "https://cdn.hstatic.net/products/1000388227/aq-230ga-3amqydf_7eb2054250e14717a153388b9a3721c3_large.png"
+    "description": "Những mẫu xe thể thao vượt thời gian sở hữu vẻ đẹp vượt xa yếu tố tốc độ đơn thuần. Dòng EFR-109 là mẫu đồng hồ ba kim thể hiện nét thanh lịch và đặc trưng năng động của những cỗ máy kinh điển này.",
+    "image": "https://cdn.hstatic.net/products/1000388227/efr-109d-2adr_6c984f47db7046b7bf8470318566af3c_1024x1024.png",
+    "images": [
+      "https://cdn.hstatic.net/products/1000388227/efr-109d-2a_toyotamuseum3_6406fd651ba745668dc2f5e2bd38760f_1024x1024.jpg",
+      "https://cdn.hstatic.net/products/1000388227/efr-109d-2a_toyotamuseum5_c15baa97c1d04a1da32c439256b62fbe_1024x1024.jpg"
+    ]
   },
   {
     "id": 4,
-    "name": "Casio Edifice EFV-100D",
+    "name": "Đồng hồ Casio Edifice EFV-100D-7AVUDF",
     "brand": "Casio",
-    "category": "Đồng hồ thể thao",
+    "category": "Đồng hồ điện tử",
     "gender": "Nam",
-    "price": 2150000,
-    "originalPrice": 2490000,
+    "price": 3428000,
+    "originalPrice": 3428000,
     "movement": "Quartz",
     "caseMaterial": "Thép không gỉ",
-    "waterResistance": "100 m",
-    "strap": "Thép bạc",
+    "waterResistance": "Khả năng chống nước ở độ sâu 100 mét",
+    "strap": "Thép không gỉ.",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Bạc Trắng"
     ],
     "stock": 15,
     "rating": 4.6,
     "sold": 67,
     "featured": false,
-    "description": "Mặt số dễ đọc, thiết kế thể thao thanh lịch dùng hằng ngày.",
-    "image": "https://cdn.hstatic.net/products/1000388227/efr-109l-7adr_87d53a1dde16437c9a3de23296acd82b_large.png"
+    "description": "Những mẫu xe thể thao vượt thời gian sở hữu vẻ đẹp vượt xa yếu tố tốc độ đơn thuần.",
+    "image": "https://product.hstatic.net/1000388227/product/efv-100d-7avudf_603fd146e9b54fd68aec171a4ff77527_grande.png"
   },
   {
     "id": 5,
-    "name": "Seiko 5 Sports SRPD55K1",
-    "brand": "Seiko",
-    "category": "Đồng hồ cơ",
-    "gender": "Nam",
-    "price": 6850000,
-    "originalPrice": 7590000,
+    "name": "Đồng hồ Casio Baby-G BGD-10KG-2DR",
+    "brand": "Casio",
+    "category": "Đồng hồ thể thao",
+    "gender": "Unisex",
+    "price": 2800000,
+    "originalPrice": 2800000,
     "movement": "Automatic",
-    "caseMaterial": "Thép không gỉ",
-    "waterResistance": "100 m",
-    "strap": "Thép bạc",
+    "caseMaterial": "Nhựa resin",
+    "waterResistance": "Khả năng chống nước ở độ sâu 100 mét",
+    "strap": "Dây đeo nhựa",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Xanh dương"
     ],
     "stock": 9,
     "rating": 4.9,
     "sold": 154,
     "featured": true,
-    "description": "Đồng hồ automatic phong cách thể thao, mặt số đen và vòng bezel xoay.",
-    "image": "https://product.hstatic.net/1000043302/product/dong-ho-seiko-5-sport-2019-chinh-hang-srpd51k1_3_9fca97c0cadd466c839b7821f60e1faa_grande.png"
+    "description": "Thiết kế bán trong suốt mang phong cách retro-pop của các mẫu BABY-G+PLUS mới được lấy cảm hứng từ xu hướng Y2K đầy cá tính.",
+    "image": "https://cdn.hstatic.net/products/1000388227/image_4859d07279e84765a357fd6c9e81fe65_master.png",
+    "images": [
+      "https://cdn.hstatic.net/products/1000388227/bgd-10kg-2_6e2694d7b4c3430e8cbf21939bd5d57a_master.png",
+      "https://cdn.hstatic.net/products/1000388227/image_df059ecdf43843cbbdd5234dd59977f9_master.jpg"
+    ]
   },
   {
     "id": 6,
-    "name": "Seiko Presage Cocktail Time SRPB43J1",
+    "name": "HCC001 Presage Classic Series",
     "brand": "Seiko",
     "category": "Đồng hồ dress",
     "gender": "Nam",
-    "price": 10900000,
-    "originalPrice": 11900000,
+    "price": 34720000,
+    "originalPrice": 34720000,
     "movement": "Automatic",
-    "caseMaterial": "Thép không gỉ",
-    "waterResistance": "50 m",
-    "strap": "Da nâu",
+    "caseMaterial": "Thép không gỉ (lớp phủ siêu cứng)",
+    "waterResistance": "Không thấm nước 100m",
+    "strap": "Khóa bướm có nút nhấn nhả",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Bạc"
     ],
     "stock": 12,
     "rating": 4.5,
     "sold": 85,
     "featured": false,
     "description": "Mặt số xanh chuyển sắc lấy cảm hứng từ cocktail, phù hợp trang phục lịch sự.",
-    "image": "https://cdn.vuahanghieu.com/unsafe/0x500/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/product/2025/04/dong-ho-nam-seiko-presage-cocktail-men-s-watch-srpb43j1-mau-bac-67eca02319280-02042025092539.jpg"
+    "image": "https://www.seikowatches.com/vn-vi/-/media/Images/Product--Image/All/Seiko/2026/04/01/21/07/HCC001J1/HCC001J1_ima_3_2026.png?mh=1200&mw=1200",
+    "images": [
+      "https://www.seikowatches.com/vn-vi/-/media/Images/Product--Image/All/Seiko/2026/04/01/21/07/HCC001J1/HCC001J1_ima_2_2026.png?mh=1200&mw=1200",
+      "https://www.seikowatches.com/vn-vi/-/media/Images/Product--Image/All/Seiko/2026/04/01/21/07/HCC001J1/HCC001J1_ima_1_2026.png?mh=1200&mw=1200"
+    ]
   },
   {
     "id": 7,
@@ -150,7 +166,6 @@
     "waterResistance": "100 m",
     "strap": "Thép bạc",
     "colors": [
-      "Đen",
       "Bạc"
     ],
     "stock": 18,
@@ -173,8 +188,7 @@
     "waterResistance": "50 m",
     "strap": "Thép bạc",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Bạc Vàng"
     ],
     "stock": 24,
     "rating": 4.8,
@@ -196,8 +210,7 @@
     "waterResistance": "30 m",
     "strap": "Da nâu",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Đen Bạc"
     ],
     "stock": 15,
     "rating": 4.6,
@@ -219,8 +232,7 @@
     "waterResistance": "200 m",
     "strap": "Thép bạc",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Bạc Xanh"
     ],
     "stock": 9,
     "rating": 4.9,
@@ -242,8 +254,7 @@
     "waterResistance": "100 m",
     "strap": "Thép bạc",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Đen"
     ],
     "stock": 12,
     "rating": 4.5,
@@ -265,8 +276,7 @@
     "waterResistance": "50 m",
     "strap": "Thép bạc",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Bạc Xanh"
     ],
     "stock": 18,
     "rating": 4.7,
@@ -288,14 +298,13 @@
     "waterResistance": "3 ATM",
     "strap": "Da nâu",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Vàng"
     ],
     "stock": 24,
     "rating": 4.8,
     "sold": 210,
     "featured": false,
-    "description": "Mặt số thanh lịch kết hợp dây da, tạo điểm nhấn nhẹ nhàng cho trang phục.",
+    "description": "Mặt số thanh lịch kết hợp dây kim loại, tạo điểm nhấn nhẹ nhàng cho trang phục.",
     "image": "https://product.hstatic.net/200000597439/product/upload_165af41c800c4448aac6cb18a6b01c20_large.jpg"
   },
   {
@@ -311,8 +320,7 @@
     "waterResistance": "5 ATM",
     "strap": "Da nâu",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Nâu Đen"
     ],
     "stock": 15,
     "rating": 4.6,
@@ -334,7 +342,6 @@
     "waterResistance": "3 ATM",
     "strap": "Thép mạ vàng hồng",
     "colors": [
-      "Đen",
       "Bạc"
     ],
     "stock": 9,
@@ -354,11 +361,10 @@
     "originalPrice": 6490000,
     "movement": "Smartwatch",
     "caseMaterial": "Nhôm",
-    "waterResistance": "Chống nước 50 m",
+    "waterResistance": "Chống nước 50m",
     "strap": "Silicone",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Trắng"
     ],
     "stock": 12,
     "rating": 4.5,
@@ -380,8 +386,7 @@
     "waterResistance": "5 ATM",
     "strap": "Silicone",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Trắng"
     ],
     "stock": 18,
     "rating": 4.7,
@@ -403,8 +408,7 @@
     "waterResistance": "5 ATM",
     "strap": "Silicone",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Đen"
     ],
     "stock": 24,
     "rating": 4.8,
@@ -426,8 +430,7 @@
     "waterResistance": "30 m",
     "strap": "Vải",
     "colors": [
-      "Đen",
-      "Bạc"
+      "Đen"
     ],
     "stock": 15,
     "rating": 4.6,
@@ -447,10 +450,9 @@
     "movement": "Quartz",
     "caseMaterial": "Nhựa",
     "waterResistance": "3 bar",
-    "strap": "Silicone",
+    "strap": "Thép đen",
     "colors": [
-      "Bạc",
-      "Vàng"
+      "Đen"
     ],
     "stock": 9,
     "rating": 4.9,
@@ -458,5 +460,93 @@
     "featured": false,
     "description": "Thiết kế nhẹ, trẻ trung với mặt số dễ đọc và dây đeo linh hoạt.",
     "image": "https://doseco.vn/_next/image?url=https%3A%2F%2Fdoseco.vn%2Fmedia%2F2026-01%2FSRWATCH%2520SL1085.1601%2520(1)_1769162187709.jpg&w=3840&q=75"
+  },
+  {
+    "id": 21,
+    "name": "Đồng Hồ Casio LF-20W-5ADF",
+    "brand": "Casio",
+    "category": "Đồng hồ thể thao",
+    "gender": "Unisex",
+    "price": 990400,
+    "originalPrice": 990400,
+    "movement": "Kim - Điện tử",
+    "caseMaterial": "Nhựa",
+    "waterResistance": "50m",
+    "strap": "Dây đeo nhựa",
+    "colors": [
+      "Đen"
+    ],
+    "stock": 9,
+    "rating": 4.9,
+    "sold": 154,
+    "featured": false,
+    "description": "Với thiết kế đơn giản, màu sắc tự nhiên cùng kích thước phù hợp với mọi giới tính, series LF-20W hứa hẹn sẽ giúp giới trẻ dễ dàng phối hợp với nhiều bộ trang phục yêu thích của mình.",
+    "image": "https://cdn.hstatic.net/products/200001214088/lf-20w-5a_913e65d892a148b2a54b576d9b247d78_c8da1490dcaa4e46807d9661c059449a_1024x1024.png"
+  },
+  {
+    "id": 22,
+    "name": "Đồng hồ Casio Nam AW-90H-2BVDF",
+    "brand": "Casio",
+    "category": "Đồng hồ thể thao",
+    "gender": "Unisex",
+    "price": 948000,
+    "originalPrice": 1028000,
+    "movement": "Kim",
+    "caseMaterial": "Nhựa",
+    "waterResistance": "Khả năng chống nước ở độ sâu 50 mét",
+    "strap": "Dây đeo nhựa",
+    "colors": [
+      "Đen"
+    ],
+    "stock": 28,
+    "rating": 4.9,
+    "sold": 154,
+    "featured": false,
+    "description": "Với thiết kế đơn giản, màu sắc tự nhiên cùng kích thước phù hợp với mọi giới tính, hứa hẹn sẽ giúp giới trẻ dễ dàng phối hợp với nhiều bộ trang phục yêu thích của mình.",
+    "image": "https://cdn.hstatic.net/products/200001214088/aw-90h-2bvdf_89b9254c403d4884a83bcea16eac7989_3ebd1b143ae542168f0ff7fdaf3135b3_1024x1024.png"
+  },
+  {
+    "id": 23,
+    "name": "Land-Dweller 40",
+    "brand": "Rolex",
+    "category": "Đồng hồ thời trang",
+    "gender": "Unisex",
+    "price": 467730000,
+    "originalPrice": 477730000,
+    "movement": "Kim",
+    "caseMaterial": "Rolesor trắng - hỗn hợp thép Oystersteel và vàng trắng",
+    "waterResistance": "Khả năng chống thấm nước lên đến 100 mét / 330 feet",
+    "strap": "Flat Jubilee, mối nối 5 mảnh chắc chắn, vật liệu Thép Oystersteel, Khóa gập ẩn Crownclasp",
+    "colors": [
+      "Trắng"
+    ],
+    "stock": 9,
+    "rating": 4.9,
+    "sold": 2,
+    "featured": false,
+    "description": "Mặt đồng hồ này được trang trí bằng họa tiết tổ ong với lớp phủ bóng mờ. Quá trình chế tác này đòi hỏi tài nghệ truyền thống kết hợp với các phương pháp công nghệ cao, tất cả đều được trau chuốt bởi bậc thầy của Rolex.",
+    "image": "https://media.rolex.com/image/upload/q_auto/f_auto/t_v7-cover-majesty-landscape/c_limit,w_1600/v1/a677b2c664f6/catalogue/2026/upright-c/m127334-0001"
+  },
+  {
+    "id": 24,
+    "name": "Cosmograph Daytona",
+    "brand": "Rolex",
+    "category": "Đồng hồ thời trang",
+    "gender": "Unisex",
+    "price": 2410851000,
+    "originalPrice": 2500851000,
+    "movement": "Kim",
+    "caseMaterial": "Vỏ giữa nguyên khối, nắp lưng xoắn vít và núm vặn, Sapphire chống trầy xước, Vành đồng hồ Cerachrom đơn khối màu nâu hạt dẻ bằng chất liệu gốm sứ với chữ số và vạch dấu giờ dạng khuôn đúc",
+    "waterResistance": "Khả năng chống thấm nước lên đến 100 mét / 330 feet",
+    "strap": "Oyster, mối nối 3 mảnh chắc chắn, Khóa gập an toàn Oysterlock với mối nối giãn Easylink 5 mm tiện dụng, Vật liệu bạch kim",
+    "colors": [
+      "Trắng"
+    ],
+    "stock": 10,
+    "rating": 4.9,
+    "sold": 1,
+    "featured": false,
+    "description": "Mẫu này kết hợp mặt đồng hồ màu xanh băng giá với bộ đếm phun phủ, có vạch dấu giờ đính đá và kim đồng hồ bằng vàng 18 ct với màn hình hiển thị Chromalight, làm từ vật liệu phát quang dễ đọc.",
+    "image": "https://media.rolex.com/image/upload/q_auto/f_auto/t_v7-cover-majesty-landscape/c_limit,w_1600/v1/a677b2c664f6/catalogue/2026/upright-c/m126506-0001"
   }
 ]

@@ -3,13 +3,14 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { Product } from '../../types/Product'
 import type { CartItem } from '../../types/CartItem'
 import type { RootState } from '../Store'
+import { loadFromStorage } from '../../utils/storage'
 
 interface CartState {
     items: CartItem[]
 }
 
 const initialState: CartState = {
-    items: [],
+    items: loadFromStorage<CartItem[]>('cart', []),
 }
 
 const cartSlice = createSlice({

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../store/hooks';
+import { loginUser } from '../store/slice/AuthSlice';
 import { isValidEmail } from '../utils/validators';
-import "../styles/AuthPage.css";
+import '../styles/AuthPage.css';
 
 type FormErrors = {
     email?: string;
@@ -11,14 +12,20 @@ type FormErrors = {
 };
 
 export default function LoginPage() {
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const state = location.state as { from?: string; message?: string } | null;
+    const from = state?.from ?? '/account';
+    const notice = state?.message;
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState<FormErrors>({});
-
-    const { login } = useAuth();
-    const navigate = useNavigate();
-    const location = useLocation();
+    const [submitting, setSubmitting] = useState(false);
+    const [serverError, setServerError] = useState('');
 
     function validate(): FormErrors {
         const newErrors: FormErrors = {};
@@ -38,15 +45,21 @@ export default function LoginPage() {
         return newErrors;
     }
 
-    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const newErrors = validate();
         setErrors(newErrors);
+        setServerError('');
+        if (Object.keys(newErrors).length > 0) return;
 
-        if (Object.keys(newErrors).length === 0) {
-            login(email);
-            const redirectPath = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/account';
-            navigate(redirectPath, { replace: true });
+        setSubmitting(true);
+        try {
+            await dispatch(loginUser({ email, password })).unwrap();
+            navigate(from, { replace: true });
+        } catch (err) {
+            setServerError(typeof err === 'string' ? err : 'Đăng nhập thất bại');
+        } finally {
+            setSubmitting(false);
         }
     }
 
@@ -57,7 +70,11 @@ export default function LoginPage() {
                     WatchStore
                 </Link>
                 <h1>Đăng nhập</h1>
-                <p className="login-subtitle">Chào mừng bạn quay lại cửa hàng đồng hồ</p>
+                <p className="login-subtitle">
+                    Tài khoản demo: demo@watchstore.com / 123456
+                </p>
+
+                {notice && <p className="notice-message">{notice}</p>}
 
                 <div className="field">
                     <label htmlFor="email">Email</label>
@@ -68,15 +85,9 @@ export default function LoginPage() {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="ban@example.com"
                         autoComplete="email"
-                        aria-invalid={Boolean(errors.email)}
-                        aria-describedby={errors.email ? 'email-error' : undefined}
                         className={errors.email ? 'input-error' : ''}
                     />
-                    {errors.email && (
-                        <p id="email-error" className="error">
-                            {errors.email}
-                        </p>
-                    )}
+                    {errors.email && <p className="error">{errors.email}</p>}
                 </div>
 
                 <div className="field">
@@ -89,8 +100,6 @@ export default function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Nhập mật khẩu"
                             autoComplete="current-password"
-                            aria-invalid={Boolean(errors.password)}
-                            aria-describedby={errors.password ? 'password-error' : undefined}
                             className={errors.password ? 'input-error' : ''}
                         />
                         <button
@@ -101,19 +110,17 @@ export default function LoginPage() {
                             {showPassword ? 'Ẩn' : 'Hiện'}
                         </button>
                     </div>
-                    {errors.password && (
-                        <p id="password-error" className="error">
-                            {errors.password}
-                        </p>
-                    )}
+                    {errors.password && <p className="error">{errors.password}</p>}
                 </div>
 
                 <div className="auth-links-right">
                     <Link to="/forgot-password">Quên mật khẩu?</Link>
                 </div>
 
-                <button type="submit" className="submit-button">
-                    Đăng nhập
+                {serverError && <p className="error server-error">{serverError}</p>}
+
+                <button type="submit" className="submit-button" disabled={submitting}>
+                    {submitting ? 'Đang đăng nhập...' : 'Đăng nhập'}
                 </button>
 
                 <p className="auth-switch">

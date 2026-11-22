@@ -7,18 +7,21 @@ import {
     clearCompare,
     clearCompareMessage,
 } from "../store/slice/CompareSlice";
-import { useCart } from "../context/CartContext";
+import { useAppDispatch } from "../store/hooks";
+import { addToCart } from "../store/slice/CartSlice";
 import type { AppDispatch } from "../store/Store";
+import type { Product } from "../types/Product";
 import "../styles/compare.css";
 
 export default function ComparePage() {
     const dispatch = useDispatch<AppDispatch>();
+    const appDispatch = useAppDispatch();
     const compareItems = useSelector(selectCompareItems);
     const message = useSelector(selectCompareMessage);
-    const { addToCart } = useCart();
 
-    const handleAddToCart = (product: typeof compareItems[0]) => {
-        addToCart(product, 1);
+    const handleAddToCart = (product: Product) => {
+        appDispatch(addToCart(product));
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
     };
 
     if (compareItems.length === 0) {

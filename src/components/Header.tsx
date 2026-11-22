@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCompareCount } from '../store/slice/CompareSlice';
-import { useAuth } from '../context/AuthContext';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
+import { selectCartCount } from '../store/slice/CartSlice';
+import { selectUser, logout } from '../store/slice/AuthSlice';
 
-interface HeaderProps {
-    cartCount?: number;
-}
+export const Header: React.FC = () => {
+    const cartCount = useAppSelector(selectCartCount);
+    const user = useAppSelector(selectUser);
+    const compareCount = useSelector(selectCompareCount);
+    const dispatch = useAppDispatch();
 
-export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
-    const compareCount = useSelector(selectCompareCount);
-    const { user, isAuthenticated } = useAuth();
 
     useEffect(() => {
         setIsMenuOpen(false);
@@ -20,6 +21,10 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
 
     const toggleMenu = () => {
         setIsMenuOpen((prev) => !prev);
+    };
+
+    const handleLogout = () => {
+        dispatch(logout());
     };
 
     return (
@@ -62,13 +67,23 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                     >
                         Blog
                     </Link>
-                    {isAuthenticated ? (
-                        <Link
-                            to="/account"
-                            className={`store-nav-link ${location.pathname === '/account' ? 'active' : ''}`}
-                        >
-                            👤 {user?.name || "Tài khoản"}
-                        </Link>
+                    {user ? (
+                        <>
+                            <Link
+                                to="/account"
+                                className={`store-nav-link ${location.pathname === '/account' ? 'active' : ''}`}
+                            >
+                                👤 {user.fullName}
+                            </Link>
+                            <button
+                                type="button"
+                                className="store-nav-link"
+                                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                                onClick={handleLogout}
+                            >
+                                Đăng xuất
+                            </button>
+                        </>
                     ) : (
                         <Link
                             to="/login"
@@ -169,13 +184,23 @@ export const Header: React.FC<HeaderProps> = ({ cartCount = 0 }) => {
                     >
                         Giỏ hàng ({cartCount})
                     </Link>
-                    {isAuthenticated ? (
-                        <Link
-                            to="/account"
-                            className={`store-mobile-nav-link ${location.pathname === '/account' ? 'active' : ''}`}
-                        >
-                            👤 Tài khoản ({user?.name || "Tôi"})
-                        </Link>
+                    {user ? (
+                        <>
+                            <Link
+                                to="/account"
+                                className={`store-mobile-nav-link ${location.pathname === '/account' ? 'active' : ''}`}
+                            >
+                                👤 {user.fullName}
+                            </Link>
+                            <button
+                                type="button"
+                                className="store-mobile-nav-link"
+                                style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer' }}
+                                onClick={handleLogout}
+                            >
+                                Đăng xuất
+                            </button>
+                        </>
                     ) : (
                         <Link
                             to="/login"

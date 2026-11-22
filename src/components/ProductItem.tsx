@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCompare, selectIsInCompare } from "../store/slice/CompareSlice";
+import { useRequireAuth } from "../hooks/useRequireAuth";
+import { useAppDispatch } from "../store/hooks";
+import { addToCart } from "../store/slice/CartSlice";
 import type { AppDispatch } from "../store/Store";
 import type { Product } from "../types/Product";
 
@@ -10,12 +13,20 @@ interface ProductItemProps {
 
 export default function ProductItem({ product }: ProductItemProps) {
     const dispatch = useDispatch<AppDispatch>();
+    const appDispatch = useAppDispatch();
+    const requireAuth = useRequireAuth();
     const isInCompare = useSelector(selectIsInCompare(product.id));
 
     const handleCompare = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
         dispatch(toggleCompare(product));
+    };
+
+    const handleAddToCart = () => {
+        if (!requireAuth()) return;
+        appDispatch(addToCart(product));
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
     };
 
     return (
@@ -63,6 +74,13 @@ export default function ProductItem({ product }: ProductItemProps) {
                     <Link to={`/products/${product.id}`} className="product-button">
                         Xem chi tiết
                     </Link>
+                    <button
+                        type="button"
+                        className="product-button"
+                        onClick={handleAddToCart}
+                    >
+                        Thêm vào giỏ
+                    </button>
                 </div>
             </div>
         </div>

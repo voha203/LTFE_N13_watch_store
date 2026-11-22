@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { selectUser, logout } from "../store/slice/AuthSlice";
 import "../styles/account.css";
 
 type TabType = "profile" | "orders" | "security";
 
 export default function AccountPage() {
-    const { user, logout, updateProfile } = useAuth();
+    const user = useAppSelector(selectUser);
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const [activeTab, setActiveTab] = useState<TabType>("profile");
-    const [name, setName] = useState(user?.name || "");
-    const [phone, setPhone] = useState(user?.phone || "");
-    const [address, setAddress] = useState(user?.address || "");
+    const [name, setName] = useState(user?.fullName || "");
+    const [phone, setPhone] = useState("0988 123 456");
+    const [address, setAddress] = useState("Khu phố 6, P. Linh Trung, TP. Thủ Đức, TP.HCM");
     const [successMsg, setSuccessMsg] = useState("");
 
     const [currentPassword, setCurrentPassword] = useState("");
@@ -22,7 +24,6 @@ export default function AccountPage() {
 
     const handleSaveProfile = (e: React.FormEvent) => {
         e.preventDefault();
-        updateProfile({ name, phone, address });
         setSuccessMsg("Cập nhật thông tin tài khoản thành công!");
         setTimeout(() => setSuccessMsg(""), 3000);
     };
@@ -45,11 +46,11 @@ export default function AccountPage() {
     };
 
     const handleLogout = () => {
-        logout();
+        dispatch(logout());
         navigate("/login");
     };
 
-    const userInitial = user?.name ? user.name.charAt(0).toUpperCase() : "U";
+    const userInitial = user?.fullName ? user.fullName.charAt(0).toUpperCase() : "U";
 
     return (
         <div className="account-page">
@@ -62,11 +63,9 @@ export default function AccountPage() {
                 <aside className="account-sidebar">
                     <div className="account-user-card">
                         <div className="account-avatar">{userInitial}</div>
-                        <h2 className="account-name">{user?.name || "Người dùng"}</h2>
+                        <h2 className="account-name">{user?.fullName || "Người dùng"}</h2>
                         <span className="account-email">{user?.email}</span>
-                        <span className="account-tier-badge">
-                            {user?.membershipTier || "Thành viên Thân Thiết"}
-                        </span>
+                        <span className="account-tier-badge">Gold Member</span>
                     </div>
 
                     <nav className="account-nav" aria-label="Menu tài khoản">
