@@ -24,6 +24,8 @@ export default function ComparePage() {
         alert("Đã thêm sản phẩm vào giỏ hàng!");
     };
 
+    const emptySlotsCount = Math.max(0, 3 - compareItems.length);
+
     if (compareItems.length === 0) {
         return (
             <div className="compare-page">
@@ -51,7 +53,7 @@ export default function ComparePage() {
                     <p>So sánh chi tiết thông số kỹ thuật và giá trị của các mẫu đồng hồ đã chọn</p>
                 </div>
                 <div className="compare-header-actions">
-                    {compareItems.length < 3 && (
+                    {emptySlotsCount > 0 && (
                         <Link to="/products" className="compare-add-more-link">
                             + Thêm sản phẩm
                         </Link>
@@ -79,6 +81,8 @@ export default function ComparePage() {
                     </button>
                 </div>
             )}
+
+            <p className="compare-scroll-hint">Vuốt sang ngang để xem đầy đủ thông số ↔</p>
 
             <div className="compare-table-container">
                 <table className="compare-table">
@@ -125,14 +129,14 @@ export default function ComparePage() {
                                     </div>
                                 </td>
                             ))}
-                            {compareItems.length < 3 && (
-                                <td className="compare-product-col">
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-slot-${idx}`} className="compare-product-col">
                                     <Link to="/products" className="compare-empty-slot">
                                         <div className="compare-empty-slot-icon">+</div>
                                         <span>Thêm sản phẩm</span>
                                     </Link>
                                 </td>
-                            )}
+                            ))}
                         </tr>
 
                         <tr>
@@ -142,7 +146,9 @@ export default function ComparePage() {
                                     <span className="compare-tag compare-tag--brand">{product.brand}</span>
                                 </td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-brand-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -150,7 +156,9 @@ export default function ComparePage() {
                             {compareItems.map((product) => (
                                 <td key={product.id}>{product.category}</td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-cat-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -158,7 +166,9 @@ export default function ComparePage() {
                             {compareItems.map((product) => (
                                 <td key={product.id}>{product.gender}</td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-gender-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -166,7 +176,9 @@ export default function ComparePage() {
                             {compareItems.map((product) => (
                                 <td key={product.id}>{product.movement || "Quartz"}</td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-move-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -174,7 +186,9 @@ export default function ComparePage() {
                             {compareItems.map((product) => (
                                 <td key={product.id}>{product.caseMaterial || "Thép không gỉ"}</td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-case-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -182,7 +196,9 @@ export default function ComparePage() {
                             {compareItems.map((product) => (
                                 <td key={product.id}>{product.waterResistance || "50 m"}</td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-water-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -190,7 +206,9 @@ export default function ComparePage() {
                             {compareItems.map((product) => (
                                 <td key={product.id}>{product.strap || "Thép không gỉ"}</td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-strap-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -200,7 +218,9 @@ export default function ComparePage() {
                                     {Array.isArray(product.colors) ? product.colors.join(", ") : "Tiêu chuẩn"}
                                 </td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-color-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -212,7 +232,9 @@ export default function ComparePage() {
                                     </span>
                                 </td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-stock-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -222,7 +244,9 @@ export default function ComparePage() {
                                     ⭐ {product.rating} / 5 ({product.sold} đã bán)
                                 </td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-rating-${idx}`}>-</td>
+                            ))}
                         </tr>
 
                         <tr>
@@ -232,7 +256,9 @@ export default function ComparePage() {
                                     {product.description}
                                 </td>
                             ))}
-                            {compareItems.length < 3 && <td>-</td>}
+                            {Array.from({ length: emptySlotsCount }).map((_, idx) => (
+                                <td key={`empty-desc-${idx}`}>-</td>
+                            ))}
                         </tr>
                     </tbody>
                 </table>
