@@ -17,4 +17,5 @@ export interface Product {
     featured: boolean;
     description: string;
     image: string;
+    images?: string[];
 }
