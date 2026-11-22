@@ -177,7 +177,6 @@ export function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState('');
   const [openSection, setOpenSection] = useState<AccordionKey | ''>('description');
   const [actionMessage, setActionMessage] = useState('');
-  // vo them
   const requireAuth = useRequireAuth();
   useEffect(() => {
     if (products.length === 0 && !loading && !error) {

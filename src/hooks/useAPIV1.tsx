@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// Hook tải dữ liệu bằng axios. Dùng: const { data, loading, error } = useAPIV1(url);
 export default
 function useAPIV1<T = any>(url: string) {
     const [data, setData] = useState<T | null>(null);

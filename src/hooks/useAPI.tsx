@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// Hook tải dữ liệu bằng fetch. Dùng: const { data, loading, error } = useAPI(url);
 export default
 function useAPI<T = any>(url: string) {
     const [data, setData] = useState<T | null>(null);

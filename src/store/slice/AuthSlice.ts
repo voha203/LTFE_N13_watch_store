@@ -49,7 +49,6 @@ const initialState: AuthState = {
     user: loadFromStorage<User | null>(CURRENT_USER_KEY, null),
 }
 
-// Giả lập độ trễ của máy chủ
 const wait = (ms: number) =>
     new Promise<void>((resolve) => setTimeout(resolve, ms))
 

@@ -1,25 +1,34 @@
-import {Link} from "react-router-dom";
-import type {Product} from "../types/Product";
-import {useRequireAuth} from "../hooks/useRequireAuth";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCompare, selectIsInCompare } from "../store/slice/CompareSlice";
+import { useRequireAuth } from "../hooks/useRequireAuth";
 import { useAppDispatch } from "../store/hooks";
 import { addToCart } from "../store/slice/CartSlice";
+import type { AppDispatch } from "../store/Store";
+import type { Product } from "../types/Product";
+
 interface ProductItemProps {
     product: Product;
 }
 
-export default function ProductItem({product}: ProductItemProps) {
-    // vo them
+export default function ProductItem({ product }: ProductItemProps) {
+    const dispatch = useDispatch<AppDispatch>();
+    const appDispatch = useAppDispatch();
     const requireAuth = useRequireAuth();
-    const dispatch = useAppDispatch();
+    const isInCompare = useSelector(selectIsInCompare(product.id));
 
-    function handleAddToCart() {
+    const handleCompare = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dispatch(toggleCompare(product));
+    };
+
+    const handleAddToCart = () => {
         if (!requireAuth()) return;
-
-        dispatch(addToCart(product));
+        appDispatch(addToCart(product));
         alert("Đã thêm sản phẩm vào giỏ hàng!");
-    }
+    };
 
-    // vo them
     return (
         <div className="product-card">
             <Link to={`/products/${product.id}`} className="product-image-link">
@@ -31,7 +40,18 @@ export default function ProductItem({product}: ProductItemProps) {
             </Link>
 
             <div className="product-card-body">
-                <span className="product-brand">{product.brand}</span>
+                <div className="product-card-top">
+                    <span className="product-brand">{product.brand}</span>
+                    <button
+                        type="button"
+                        className={`product-compare-btn ${isInCompare ? "product-compare-btn--active" : ""}`}
+                        onClick={handleCompare}
+                        title={isInCompare ? "Bỏ so sánh" : "Thêm vào so sánh (tối đa 3)"}
+                        aria-label="So sánh sản phẩm"
+                    >
+                        ⚖️ {isInCompare ? "Đang so sánh" : "So sánh"}
+                    </button>
+                </div>
 
                 <h3 className="product-name">{product.name}</h3>
 
@@ -50,13 +70,18 @@ export default function ProductItem({product}: ProductItemProps) {
                     {product.originalPrice.toLocaleString("vi-VN")} đ
                 </div>
 
-                <Link to={`/products/${product.id}`} className="product-button">
-                    Xem sản phẩm
-                </Link>
-
-                <button type="button" className="product-button" onClick={handleAddToCart}>
-                    Thêm vào giỏ hàng
-                </button>
+                <div className="product-card-actions">
+                    <Link to={`/products/${product.id}`} className="product-button">
+                        Xem chi tiết
+                    </Link>
+                    <button
+                        type="button"
+                        className="product-button"
+                        onClick={handleAddToCart}
+                    >
+                        Thêm vào giỏ
+                    </button>
+                </div>
             </div>
         </div>
     );
