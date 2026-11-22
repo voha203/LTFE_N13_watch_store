@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router';
-import { useCart } from '../context/CartContext';
 import { fetchProducts } from '../store/slice/ProductListSlice';
+import { addToCart } from '../store/slice/CartSlice';
 import type { AppDispatch, RootState } from '../store/Store';
-import type { Product } from '../types/Product';
 import '../styles/product-detail.css';
 import { useRequireAuth } from '../hooks/useRequireAuth';
 function formatPrice(value: number) {
@@ -168,7 +167,6 @@ export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const { addToCart } = useCart();
 
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products
@@ -240,7 +238,9 @@ export function ProductDetail() {
       return;
     }
 
-    addToCart(product, quantity);
+    for (let i = 0; i < quantity; i++) {
+      dispatch(addToCart(product));
+    }
     setActionMessage(
       `Đã thêm ${quantity} × "${product.name}" (${color}) vào giỏ hàng.`
     );
@@ -251,7 +251,10 @@ export function ProductDetail() {
       return;
     }
 
-    addToCart(product, quantity);
+    for (let i = 0; i < quantity; i++) {
+      dispatch(addToCart(product));
+    }
+
     navigate('/cart');
   };
 

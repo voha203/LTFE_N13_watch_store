@@ -1,23 +1,25 @@
-import { Link } from "react-router-dom";
-import type { Product } from "../types/Product";
-import { useRequireAuth } from "../hooks/useRequireAuth";
-import { useCart } from "../context/CartContext";
+import {Link} from "react-router-dom";
+import type {Product} from "../types/Product";
+import {useRequireAuth} from "../hooks/useRequireAuth";
+import { useAppDispatch } from "../store/hooks";
+import { addToCart } from "../store/slice/CartSlice";
 interface ProductItemProps {
     product: Product;
 }
 
-export default function ProductItem({ product }: ProductItemProps) {
+export default function ProductItem({product}: ProductItemProps) {
     // vo them
     const requireAuth = useRequireAuth();
-    const { addToCart } = useCart();
+    const dispatch = useAppDispatch();
 
     function handleAddToCart() {
         if (!requireAuth()) return;
 
-        addToCart(product, 1);
+        dispatch(addToCart(product));
         alert("Đã thêm sản phẩm vào giỏ hàng!");
     }
-   // vo them
+
+    // vo them
     return (
         <div className="product-card">
             <Link to={`/products/${product.id}`} className="product-image-link">
@@ -52,6 +54,9 @@ export default function ProductItem({ product }: ProductItemProps) {
                     Xem sản phẩm
                 </Link>
 
+                <button type="button" className="product-button" onClick={handleAddToCart}>
+                    Thêm vào giỏ hàng
+                </button>
             </div>
         </div>
     );
