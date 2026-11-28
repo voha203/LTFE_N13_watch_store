@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCompare, selectIsInCompare, selectCompareItems } from "../store/slice/CompareSlice";
 import { useRequireAuth } from "../hooks/useRequireAuth";
-import { useAppDispatch } from "../store/hooks";
+import {useAppDispatch, useAppSelector} from "../store/hooks";
 import { addToCart } from "../store/slice/CartSlice";
+import { selectIsInWishlist, toggleWishlist } from "../store/slice/WishlistSlice";
 import type { AppDispatch } from "../store/Store";
 import type { Product } from "../types/Product";
 
@@ -17,6 +18,7 @@ export default function ProductItem({ product }: ProductItemProps) {
     const requireAuth = useRequireAuth();
     const isInCompare = useSelector(selectIsInCompare(product.id));
     const compareItems = useSelector(selectCompareItems);
+    const isInWishlist = useAppSelector(selectIsInWishlist(product.id));
 
     const handleCompare = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -28,6 +30,10 @@ export default function ProductItem({ product }: ProductItemProps) {
         dispatch(toggleCompare(product));
     };
 
+    const handleToggleWishlist = () => {
+        appDispatch(toggleWishlist(product));
+    };
+
     const handleAddToCart = () => {
         if (!requireAuth()) return;
         appDispatch(addToCart(product));
@@ -36,6 +42,17 @@ export default function ProductItem({ product }: ProductItemProps) {
 
     return (
         <div className="product-card">
+            <button
+                type="button"
+                className={`product-wishlist-btn ${isInWishlist ? "product-wishlist-btn--active" : ""}`}
+                onClick={handleToggleWishlist}
+                title={isInWishlist ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+                aria-label={isInWishlist ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+                aria-pressed={isInWishlist}
+            >
+                {isInWishlist ? "❤️" : "🤍"}
+            </button>
+
             <Link to={`/products/${product.id}`} className="product-image-link">
                 <img
                     src={product.image}
