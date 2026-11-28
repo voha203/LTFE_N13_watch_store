@@ -75,7 +75,9 @@ export default function ProductItem({ product }: ProductItemProps) {
                     </button>
                 </div>
 
-                <h3 className="product-name">{product.name}</h3>
+                <h3 className="product-name">
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                </h3>
 
                 <p className="product-description">{product.description}</p>
 
