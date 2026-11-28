@@ -431,6 +431,28 @@
   color: #17654e;
 }
 
+.product-detail-page__btn--wishlist {
+  grid-column: 1 / -1;
+  border-color: #fecdd3;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.product-detail-page__btn--wishlist:hover:not(:disabled) {
+  border-color: #be123c;
+  background: #ffe4e6;
+}
+
+.product-detail-page__btn--wishlist-active {
+  border-color: #be123c;
+  background: #be123c;
+  color: #fff;
+}
+
+.product-detail-page__btn--wishlist-active:hover:not(:disabled) {
+  background: #9f1239;
+}
+
 .product-detail-page__notice {
   margin-top: 14px;
   padding: 10px 14px;

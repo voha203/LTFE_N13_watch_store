@@ -12,6 +12,7 @@ import NotFoundPage from '../pages/NotFoundPage';
 import RegisterPage from '../pages/RegisterPage';
 import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ComparePage from '../pages/ComparePage';
+import WishlistPage from '../pages/WishlistPage';
 import AccountPage from '../pages/AccountPage';
 import ProtectedRoute from './ProtectedRoute';
 
@@ -23,6 +24,7 @@ export default function AppRoutes() {
         <Route path="products" element={<ProductsPage />} />
         <Route path="products/:id" element={<ProductDetailPage />} />
         <Route path="compare" element={<ComparePage />} />
+        <Route path="wishlist" element={<WishlistPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="blog/:slug" element={<BlogDetailPage />} />
         <Route path="login" element={<LoginPage />} />

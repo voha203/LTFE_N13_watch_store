@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router';
 import { fetchProducts } from '../store/slice/ProductListSlice';
 import { addToCart } from '../store/slice/CartSlice';
+import { selectIsInWishlist, toggleWishlist } from '../store/slice/WishlistSlice';
 import type { AppDispatch, RootState } from '../store/Store';
 import '../styles/product-detail.css';
 import { useRequireAuth } from '../hooks/useRequireAuth';
@@ -43,6 +44,14 @@ function CartIcon() {
       <circle cx="9" cy="20" r="1.5" />
       <circle cx="18" cy="20" r="1.5" />
       <path d="M3 3h2l2.4 11.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6" />
+    </svg>
+  );
+}
+
+function HeartIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.7-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z" />
     </svg>
   );
 }
@@ -167,6 +176,7 @@ export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const isInWishlist = useSelector(selectIsInWishlist(Number(id)));
 
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products
@@ -470,6 +480,17 @@ export function ProductDetail() {
             >
               Mua ngay
               <ArrowIcon />
+            </button>
+            <button
+              type="button"
+              className={`product-detail-page__btn product-detail-page__btn--wishlist${
+                isInWishlist ? ' product-detail-page__btn--wishlist-active' : ''
+              }`}
+              onClick={() => dispatch(toggleWishlist(product))}
+              aria-pressed={isInWishlist}
+            >
+              <HeartIcon filled={isInWishlist} />
+              {isInWishlist ? 'Đã thêm vào yêu thích' : 'Thêm vào yêu thích'}
             </button>
           </div>
 

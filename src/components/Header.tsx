@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCompareCount } from '../store/slice/CompareSlice';
+import { selectWishlistCount } from '../store/slice/WishlistSlice';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectCartCount } from '../store/slice/CartSlice';
 import { selectUser, logout } from '../store/slice/AuthSlice';
@@ -10,6 +11,7 @@ export const Header: React.FC = () => {
     const cartCount = useAppSelector(selectCartCount);
     const user = useAppSelector(selectUser);
     const compareCount = useSelector(selectCompareCount);
+    const wishlistCount = useAppSelector(selectWishlistCount);
     const dispatch = useAppDispatch();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,6 +60,17 @@ export const Header: React.FC = () => {
                         {compareCount > 0 && (
                             <span className="store-cart-badge store-cart-badge--active">
                                 {compareCount}
+                            </span>
+                        )}
+                    </Link>
+                    <Link
+                        to="/wishlist"
+                        className={`store-nav-link ${location.pathname === '/wishlist' ? 'active' : ''}`}
+                    >
+                        Yêu thích
+                        {wishlistCount > 0 && (
+                            <span className="store-cart-badge store-cart-badge--active">
+                                {wishlistCount}
                             </span>
                         )}
                     </Link>
@@ -125,6 +138,22 @@ export const Header: React.FC = () => {
                     </Link>
 
                     <Link
+                        to="/wishlist"
+                        aria-label={`Yêu thích, ${wishlistCount} sản phẩm`}
+                        className="store-nav-cart store-nav-cart--mobile"
+                    >
+                        <span className="store-cart-icon" aria-hidden="true">❤️</span>
+                        {wishlistCount > 0 && (
+                            <span
+                                aria-hidden="true"
+                                className="store-cart-badge store-cart-badge--active"
+                            >
+                                {wishlistCount}
+                            </span>
+                        )}
+                    </Link>
+
+                    <Link
                         to="/cart"
                         aria-label={`Giỏ hàng, ${cartCount} sản phẩm`}
                         className="store-nav-cart store-nav-cart--mobile"
@@ -171,6 +200,12 @@ export const Header: React.FC = () => {
                         className={`store-mobile-nav-link ${location.pathname === '/compare' ? 'active' : ''}`}
                     >
                         So sánh ({compareCount})
+                    </Link>
+                    <Link
+                        to="/wishlist"
+                        className={`store-mobile-nav-link ${location.pathname === '/wishlist' ? 'active' : ''}`}
+                    >
+                        Yêu thích ({wishlistCount})
                     </Link>
                     <Link
                         to="/blog"
